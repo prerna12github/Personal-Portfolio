@@ -7,30 +7,19 @@ const About = () => {
   return (
     <section
       id="about"
-      className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-purple-100 to-blue-200 p-10"
+      className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-slate-900 via-purple-950 to-slate-900 p-10"
     >
-      <h1 className="text-5xl font-bold text-purple-800 mb-6">About Me</h1>
+      <h1 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-purple-400 mb-6">About Me</h1>
 <button
   onClick={() => setShowInfo(!showInfo)}
   className="relative px-8 py-3 font-semibold text-white rounded-lg
-             bg-purple-600 shadow-[0_0_15px_4px_rgba(168,85,247,0.6)]
+             bg-gradient-to-r from-purple-600 to-violet-600 shadow-[0_0_20px_4px_rgba(139,92,246,0.5)]
              transition-all duration-300
-             hover:shadow-[0_0_30px_10px_rgba(168,85,247,0.8)]
-             hover:bg-purple-700
-             animate-[pulseGlow_2s_ease-in-out_infinite]"
+             hover:shadow-[0_0_40px_10px_rgba(139,92,246,0.8)]
+             hover:scale-105
+             animate-pulse-slow"
 >
   {showInfo ? "Hide Info" : "Click to Know About Me"}
-
-  <style>{`
-    @keyframes pulseGlow {
-      0%, 100% {
-        box-shadow: 0 0 15px 4px rgba(168,85,247,0.6);
-      }
-      50% {
-        box-shadow: 0 0 25px 8px rgba(168,85,247,0.9);
-      }
-    }
-  `}</style>
 </button>
 
       {/* Info section with animation */}
@@ -42,7 +31,7 @@ const About = () => {
         }`}
       >
         {/* Profile Image */}
-        <div className="w-56 h-56 square-full overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300">
+        <div className="w-56 h-56 square-full overflow-hidden shadow-2xl hover:scale-105 transition-transform duration-300 border-4 border-purple-500/30">
           <img
             src="/prerna.jpg"
             alt="Prerna Kumari Sharma"
@@ -52,11 +41,11 @@ const About = () => {
 
         {/* About Text */}
         <div className="max-w-xl text-center md:text-left">
-          <p className="text-gray-800 text-lg leading-relaxed">
-            Hello! I’m <span className="font-semibold text-purple-800">Prerna Kumari Sharma</span>,
+          <p className="text-gray-300 text-lg leading-relaxed">
+            Hello! I'm <span className="font-semibold text-purple-300">Prerna Kumari Sharma</span>,
             a passionate developer who loves building creative and efficient web
-            applications. I’m also deeply interested in{" "}
-            <span className="text-blue-700 font-medium">
+            applications. I'm also deeply interested in{" "}
+            <span className="text-violet-300 font-medium">
               Machine Learning and Computer Vision
             </span>
             . I enjoy learning new technologies and turning ideas into reality

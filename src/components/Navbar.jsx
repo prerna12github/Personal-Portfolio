@@ -16,7 +16,7 @@ function classNames(...classes) {
 
 const Navbar = () => {
   return (
-    <Disclosure as="nav" className="fixed top-0 w-full z-50 bg-white/90 border-b border-gray-200 backdrop-blur shadow-sm">
+    <Disclosure as="nav" className="fixed top-0 w-full z-50 bg-slate-900/80 border-b border-white/10 backdrop-blur-xl shadow-lg">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -29,7 +29,7 @@ const Navbar = () => {
                   src="https://thumbs.dreamstime.com/b/pks-letter-initial-logo-design-vector-illustration-letter-initial-logo-design-vector-illustration-pks-letter-initial-logo-design-236635893.jpg?w=768"
                   alt="Logo"
                 />
-                <span className="text-black font-semibold ml-2">Prerna</span>
+                <span className="text-white font-semibold ml-2 bg-gradient-to-r from-violet-400 to-purple-400 bg-clip-text text-transparent">Prerna</span>
               </div>
 
               {/* Right: Desktop navigation links */}
@@ -40,9 +40,9 @@ const Navbar = () => {
                     href={item.href}
                     className={classNames(
                       item.current
-                        ? "bg-gray-100 text-blue-700"
-                        : "text-gray-700 hover:bg-gray-200 hover:text-blue-700",
-                      "px-3 py-2 rounded-md text-sm font-medium"
+                        ? "bg-purple-500/20 text-purple-300 border border-purple-500/30"
+                        : "text-gray-300 hover:bg-white/10 hover:text-white border border-transparent",
+                      "px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300"
                     )}
                     aria-current={item.current ? "page" : undefined}
                   >
@@ -53,7 +53,7 @@ const Navbar = () => {
 
               {/* Mobile menu button */}
               <div className="sm:hidden">
-                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-blue-700 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
+                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-lg text-gray-300 hover:text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
                     <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
@@ -66,7 +66,7 @@ const Navbar = () => {
           </div>
 
           {/* Mobile menu panel */}
-          <Disclosure.Panel className="sm:hidden bg-white/90 border-t border-gray-200">
+          <Disclosure.Panel className="sm:hidden bg-slate-900/95 border-t border-white/10">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navigation.map((item) => (
                 <Disclosure.Button
@@ -75,9 +75,9 @@ const Navbar = () => {
                   href={item.href}
                   className={classNames(
                     item.current
-                      ? "bg-gray-100 text-blue-700"
-                      : "text-gray-700 hover:bg-gray-200 hover:text-blue-700",
-                    "block px-3 py-2 rounded-md text-base font-medium"
+                      ? "bg-purple-500/20 text-purple-300 border border-purple-500/30"
+                      : "text-gray-300 hover:bg-white/10 hover:text-white border border-transparent",
+                    "block px-3 py-2 rounded-lg text-base font-medium transition-all duration-300"
                   )}
                   aria-current={item.current ? "page" : undefined}
                 >

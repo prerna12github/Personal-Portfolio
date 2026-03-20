@@ -5,7 +5,7 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="relative bg-gradient-to-br from-blue-100 to-purple-100 py-20 px-6 scroll-smooth"
+      className="relative bg-gradient-to-br from-slate-900 via-purple-950 to-slate-900 py-20 px-6 scroll-smooth"
     >
       <div className="container mx-auto max-w-4xl">
         {/* Section Heading */}
@@ -16,11 +16,11 @@ const Contact = () => {
           viewport={{ once: false, amount: 0.3 }}
           className="text-center mb-12"
         >
-          <h1 className="text-4xl sm:text-5xl font-extrabold mb-4 bg-gradient-to-r from-indigo-700 to-purple-700 bg-clip-text text-transparent">
-            Contact <span className="text-gray-900">Me</span>
+          <h1 className="text-4xl sm:text-5xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-purple-400">
+            Contact <span className="text-white">Me</span>
           </h1>
-          <p className="text-gray-700 max-w-2xl mx-auto">
-            Have a question or want to work together? Feel free to drop a message below — I’ll get back to you soon.
+          <p className="text-gray-400 max-w-2xl mx-auto">
+            Have a question or want to work together? Feel free to drop a message below — I'll get back to you soon.
           </p>
         </motion.div>
 
@@ -30,7 +30,7 @@ const Contact = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9, ease: "easeOut" }}
           viewport={{ once: false, amount: 0.3 }}
-          className="bg-white/90 backdrop-blur-sm p-8 rounded-2xl shadow-xl border border-gray-100"
+          className="bg-slate-800/50 backdrop-blur-xl p-8 rounded-2xl shadow-2xl border border-white/10"
         >
           <form className="flex flex-wrap -m-2">
             {/* Name */}
@@ -38,7 +38,7 @@ const Contact = () => {
               <div className="relative">
                 <label
                   htmlFor="name"
-                  className="block text-sm font-semibold text-gray-600 mb-1"
+                  className="block text-sm font-semibold text-gray-300 mb-1"
                 >
                   Name
                 </label>
@@ -47,9 +47,9 @@ const Contact = () => {
                   id="name"
                   name="name"
                   placeholder="Your Name"
-                  className="w-full bg-gray-100 bg-opacity-60 rounded-lg border border-gray-300 
-                  focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 
-                  text-gray-700 text-base py-2 px-3 outline-none transition-all duration-200"
+                  className="w-full bg-slate-900/50 rounded-lg border border-white/10
+                  focus:border-purple-500 focus:bg-slate-900 focus:ring-2 focus:ring-purple-500/20
+                  text-white text-base py-2 px-3 outline-none transition-all duration-200 placeholder-gray-500"
                 />
               </div>
             </div>
@@ -59,7 +59,7 @@ const Contact = () => {
               <div className="relative">
                 <label
                   htmlFor="email"
-                  className="block text-sm font-semibold text-gray-600 mb-1"
+                  className="block text-sm font-semibold text-gray-300 mb-1"
                 >
                   Email
                 </label>
@@ -68,9 +68,9 @@ const Contact = () => {
                   id="email"
                   name="email"
                   placeholder="you@example.com"
-                  className="w-full bg-gray-100 bg-opacity-60 rounded-lg border border-gray-300 
-                  focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 
-                  text-gray-700 text-base py-2 px-3 outline-none transition-all duration-200"
+                  className="w-full bg-slate-900/50 rounded-lg border border-white/10
+                  focus:border-purple-500 focus:bg-slate-900 focus:ring-2 focus:ring-purple-500/20
+                  text-white text-base py-2 px-3 outline-none transition-all duration-200 placeholder-gray-500"
                 />
               </div>
             </div>
@@ -80,7 +80,7 @@ const Contact = () => {
               <div className="relative">
                 <label
                   htmlFor="message"
-                  className="block text-sm font-semibold text-gray-600 mb-1"
+                  className="block text-sm font-semibold text-gray-300 mb-1"
                 >
                   Message
                 </label>
@@ -88,9 +88,9 @@ const Contact = () => {
                   id="message"
                   name="message"
                   placeholder="Write your message..."
-                  className="w-full bg-gray-100 bg-opacity-60 rounded-lg border border-gray-300 
-                  focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 
-                  text-gray-700 h-32 text-base py-2 px-3 resize-none outline-none transition-all duration-200"
+                  className="w-full bg-slate-900/50 rounded-lg border border-white/10
+                  focus:border-purple-500 focus:bg-slate-900 focus:ring-2 focus:ring-purple-500/20
+                  text-white h-32 text-base py-2 px-3 resize-none outline-none transition-all duration-200 placeholder-gray-500"
                 ></textarea>
               </div>
             </div>
@@ -101,9 +101,9 @@ const Contact = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 type="submit"
-                className="flex mx-auto text-white bg-indigo-600 border-0 py-2 px-10 
-                focus:outline-none hover:bg-indigo-700 rounded-full text-lg shadow-md 
-                transition-all duration-300"
+                className="flex mx-auto text-white bg-gradient-to-r from-violet-600 to-purple-600 border-0 py-3 px-12
+                focus:outline-none hover:from-violet-700 hover:to-purple-700 rounded-full text-lg shadow-lg
+                hover:shadow-purple-500/50 transition-all duration-300"
               >
                 Send Message
               </motion.button>

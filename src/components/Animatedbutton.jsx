@@ -6,7 +6,7 @@ const AnimatedButton = ({ showInfo, setShowInfo }) => {
   return (
     <button
       onClick={() => setShowInfo(!showInfo)}
-      className="px-8 py-3 bg-purple-600 text-white rounded-lg shadow-md hover:bg-purple-700 transition-all duration-300"
+      className="px-8 py-3 bg-gradient-to-r from-purple-600 to-violet-600 text-white rounded-lg shadow-lg hover:from-purple-700 hover:to-violet-700 transition-all duration-300 hover:scale-105"
     >
       {text.split("").map((char, index) => (
         <span

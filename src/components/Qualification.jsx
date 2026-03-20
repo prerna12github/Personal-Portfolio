@@ -21,11 +21,11 @@ const Qualification = () => {
   return (
     <section
       id="qualification"
-      className="bg-gradient-to-br from-blue-50 to-purple-100 py-20 px-8 text-center scroll-smooth mt-20"
+      className="bg-gradient-to-br from-slate-900 via-purple-950 to-slate-900 py-20 px-8 text-center scroll-smooth mt-20"
     >
       {/* Heading */}
-      <h2 className="text-4xl font-extrabold text-purple-700 mb-10">
-        🎓 My <span className="text-black">Qualifications</span>
+      <h2 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-purple-400 mb-10">
+        🎓 My <span className="text-white">Qualifications</span>
       </h2>
 
       {/* Education Cards */}
@@ -41,7 +41,7 @@ const Qualification = () => {
               ease: "easeOut",
             }}
             viewport={{ once: false, amount: 0.3 }}
-            className="flex flex-col md:flex-row bg-white border border-gray-200 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 w-full max-w-5xl overflow-hidden"
+            className="flex flex-col md:flex-row bg-slate-800/50 border border-white/10 rounded-2xl shadow-xl hover:shadow-2xl hover:border-purple-500/30 transition-all duration-300 w-full max-w-5xl overflow-hidden backdrop-blur-sm"
           >
             {/* Left Image */}
             <div className="overflow-hidden md:w-72 w-full">
@@ -54,17 +54,17 @@ const Qualification = () => {
 
             {/* Right Content */}
             <div className="flex flex-col justify-center items-start p-6 text-left">
-              <h3 className="text-2xl font-bold text-[#002b7f] mb-3">
+              <h3 className="text-2xl font-bold text-violet-300 mb-3">
                 {edu.title}
               </h3>
 
-              <p className="text-gray-700 mb-2 flex items-center gap-2">
-                <FaSchool className="text-purple-600" />
+              <p className="text-gray-300 mb-2 flex items-center gap-2">
+                <FaSchool className="text-purple-400" />
                 {edu.school}
               </p>
 
-              <p className="text-green-700 font-semibold flex items-center gap-2">
-                <FaCalendarAlt className="text-green-600" />
+              <p className="text-green-400 font-semibold flex items-center gap-2">
+                <FaCalendarAlt className="text-green-500" />
                 {edu.duration}
               </p>
             </div>
