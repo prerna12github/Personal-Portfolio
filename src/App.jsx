@@ -58,6 +58,28 @@ const App = () => {
                 <FaLinkedin className="text-3xl text-blue-500 group-hover:text-blue-400 group-hover:scale-110 transition-all duration-300" />
               </a>
             </div>
+
+            <br>
+            </br>
+            <br>
+            </br>
+            <a
+              href="#projects"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600 text-white font-semibold rounded-full shadow-lg shadow-purple-500/30 hover:shadow-xl hover:shadow-purple-500/50 hover:scale-105 hover:-translate-y-1 transition-all duration-300 group"
+            >
+              <span>Explore My Projects</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </a>
+
           </div>
 
           {/* Right Side Image */}

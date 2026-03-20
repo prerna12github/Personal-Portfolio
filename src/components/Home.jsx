@@ -19,6 +19,16 @@ const Home = () => {
           <a href="https://instagram.com" target="_blank" rel="noreferrer"><FaInstagram className="text-3xl text-pink-500 hover:scale-110 transition-transform"/></a>
           <a href="https://linkedin.com" target="_blank" rel="noreferrer"><FaLinkedin className="text-3xl text-blue-700 hover:scale-110 transition-transform"/></a>
         </div>
+
+        {/* Explore My Projects Button */}
+        <div className="mt-12">
+          <a href="#projects">
+            <button className="group relative px-8 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-full shadow-lg overflow-hidden transition-all duration-300 hover:shadow-purple-500/50 hover:-translate-y-1">
+              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out"></span>
+              <span className="relative">Explore My Projects</span>
+            </button>
+          </a>
+        </div>
       </div>
 
       {/* Right image */}
