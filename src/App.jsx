@@ -7,11 +7,18 @@ import Qualification from "./components/Qualification";
 import Typewriter from "typewriter-effect";
 import Contact from "./components/Contact";
 import Projects from "./components/Projects";
+import { StarsBackground } from "./components/animate-ui/components/backgrounds/stars";
 
 const App = () => {
+  const scrollToProjects = () => {
+    const projectsSection = document.getElementById('projects');
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   return (
     <div className="scroll-smooth bg-slate-950">
-      <div className="min-h-screen bg-gradient-to-br from-slate-950 via-purple-950 to-slate-950">
+      <StarsBackground className="min-h-screen" speed={50} starColor="#a78bfa">
         <Navbar />
 
         {/* 🏠 Home Section */}
@@ -63,22 +70,32 @@ const App = () => {
             </br>
             <br>
             </br>
-            <a
-              href="#projects"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600 text-white font-semibold rounded-full shadow-lg shadow-purple-500/30 hover:shadow-xl hover:shadow-purple-500/50 hover:scale-105 hover:-translate-y-1 transition-all duration-300 group"
-            >
-              <span>Explore My Projects</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </a>
+ <button
+  onClick={scrollToProjects}
+  className="group relative inline-flex h-12 active:scale-95 transition overflow-hidden rounded-full p-[1px] focus:outline-none hover:shadow-xl hover:shadow-purple-500/50"
+>
+  {/* Spinning gradient border — now glowy */}
+  <span
+    className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#7c3aed_0%,#a78bfa_50%,#4f46e5_100%)] blur-[1px]"
+  />
+
+  {/* Inner button content */}
+  <span
+    className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-7 text-sm font-medium text-white backdrop-blur-3xl gap-3"
+  >
+    Explore My Projects
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={2}
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+    </svg>
+  </span>
+</button>
 
           </div>
 
@@ -108,7 +125,7 @@ const App = () => {
 
         {/* 🔻 Footer — at the bottom of everything */}
         <Footer />
-      </div>
+      </StarsBackground>
     </div>
   );
 };

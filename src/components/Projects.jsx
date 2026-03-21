@@ -22,7 +22,7 @@ const Projects = () => {
   }, [])
 
   return (
-    <section id="projects" className="bg-gradient-to-br from-slate-900 via-purple-950 to-slate-900 px-8 py-20">
+    <section id="projects" className="min-h-screen flex flex-col items-center justify-center p-10 bg-purple-950/20">
       <h2 className="text-4xl md:text-5xl font-bold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-purple-400">My Projects</h2>
       <p className="text-gray-400 mb-12 text-lg">
         Here are some of my projects

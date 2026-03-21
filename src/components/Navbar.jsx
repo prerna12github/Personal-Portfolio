@@ -14,6 +14,14 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
+const scrollToSection = (e, href) => {
+  e.preventDefault();
+  const section = document.querySelector(href);
+  if (section) {
+    section.scrollIntoView({ behavior: 'smooth' });
+  }
+};
+
 const Navbar = () => {
   return (
     <Disclosure as="nav" className="fixed top-0 w-full z-50 bg-slate-900/80 border-b border-white/10 backdrop-blur-xl shadow-lg">
@@ -38,6 +46,7 @@ const Navbar = () => {
                   <a
                     key={item.name}
                     href={item.href}
+                    onClick={(e) => scrollToSection(e, item.href)}
                     className={classNames(
                       item.current
                         ? "bg-purple-500/20 text-purple-300 border border-purple-500/30"
@@ -73,6 +82,7 @@ const Navbar = () => {
                   key={item.name}
                   as="a"
                   href={item.href}
+                  onClick={(e) => scrollToSection(e, item.href)}
                   className={classNames(
                     item.current
                       ? "bg-purple-500/20 text-purple-300 border border-purple-500/30"

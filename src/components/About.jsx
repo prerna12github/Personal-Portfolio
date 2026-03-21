@@ -7,7 +7,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-slate-900 via-purple-950 to-slate-900 p-10"
+      className="min-h-screen flex flex-col items-center justify-center p-10 bg-purple-950/20"
     >
       <h1 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-purple-400 mb-6">About Me</h1>
 <button
@@ -17,7 +17,7 @@ const About = () => {
              transition-all duration-300
              hover:shadow-[0_0_40px_10px_rgba(139,92,246,0.8)]
              hover:scale-105
-             animate-pulse-slow"
+             animate-pulse-slow cursor-pointer"
 >
   {showInfo ? "Hide Info" : "Click to Know About Me"}
 </button>

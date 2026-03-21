@@ -5,7 +5,7 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="relative bg-gradient-to-br from-slate-900 via-purple-950 to-slate-900 py-20 px-6 scroll-smooth"
+      className="min-h-screen flex flex-col items-center justify-center p-10 bg-purple-950/20 scroll-smooth"
     >
       <div className="container mx-auto max-w-4xl">
         {/* Section Heading */}
@@ -17,7 +17,7 @@ const Contact = () => {
           className="text-center mb-16"
         >
           <h1 className="text-4xl sm:text-5xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-purple-400">
-            Contact <span className="text-white">Me</span>
+            Connect With <span className="text-white">Me</span>
           </h1>
           <p className="text-gray-300 max-w-2xl mx-auto text-lg">
             Have a question or want to work together? Feel free to drop a message below — I'll get back to you soon.
@@ -32,7 +32,11 @@ const Contact = () => {
           viewport={{ once: false, amount: 0.3 }}
           className="bg-slate-800/60 backdrop-blur-xl p-10 rounded-2xl shadow-2xl border border-purple-500/20"
         >
-          <form className="flex flex-wrap -m-3">
+          <form className="flex flex-wrap -m-3" onSubmit={(e) => {
+            e.preventDefault();
+            alert("Thank you for your message! I'll get back to you soon.");
+            e.target.reset();
+          }}>
             {/* Name */}
             <div className="p-3 w-full sm:w-1/2">
               <div className="relative">
@@ -103,7 +107,7 @@ const Contact = () => {
                 type="submit"
                 className="flex mx-auto text-white bg-gradient-to-r from-violet-600 to-purple-600 border-0 py-3 px-16
                 focus:outline-none hover:from-violet-700 hover:to-purple-700 rounded-full text-lg shadow-lg
-                hover:shadow-purple-500/50 transition-all duration-300"
+                hover:shadow-purple-500/50 transition-all duration-300 cursor-pointer"
               >
                 Send Message
               </motion.button>

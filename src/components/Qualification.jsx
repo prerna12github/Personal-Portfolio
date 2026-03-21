@@ -21,7 +21,7 @@ const Qualification = () => {
   return (
     <section
       id="qualification"
-      className="bg-gradient-to-br from-slate-900 via-purple-950 to-slate-900 py-20 px-8 text-center scroll-smooth mt-20"
+      className="min-h-screen flex flex-col items-center justify-center p-10 bg-purple-950/20"
     >
       {/* Heading */}
       <h2 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-purple-400 mb-10">

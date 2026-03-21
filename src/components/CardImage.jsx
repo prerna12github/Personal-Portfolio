@@ -10,6 +10,14 @@ import {
 } from "@/components/ui/card"
 
 export function CardImage({ project }) {
+  const handleViewProject = () => {
+    if (project?.project_url) {
+      window.open(project.project_url, '_blank', 'noopener,noreferrer');
+    } else {
+      alert(`Project "${project?.title || 'Unknown'}" coming soon!`);
+    }
+  };
+
   return (
     <Card className="group relative w-full max-w-sm overflow-hidden rounded-2xl border border-white/10 bg-slate-800/50 backdrop-blur-xl shadow-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:border-purple-500/30">
 
@@ -45,7 +53,8 @@ export function CardImage({ project }) {
       {/* Footer */}
       <CardFooter>
         <Button
-          className="w-full rounded-xl bg-gradient-to-r from-violet-600 to-purple-600 text-white shadow-md transition-all duration-300 hover:from-violet-700 hover:to-purple-700 hover:shadow-lg hover:shadow-purple-500/30"
+          onClick={handleViewProject}
+          className="w-full rounded-xl bg-gradient-to-r from-violet-600 to-purple-600 text-white shadow-md transition-all duration-300 hover:from-violet-700 hover:to-purple-700 hover:shadow-lg hover:shadow-purple-500/30 cursor-pointer"
         >
           View Project →
         </Button>
