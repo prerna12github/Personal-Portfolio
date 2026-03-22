@@ -33,11 +33,10 @@ const Navbar = () => {
               {/* Left: Logo + Name */}
               <div className="flex items-center">
                 <img
-                  className="h-8 w-auto"
-                  src="https://thumbs.dreamstime.com/b/pks-letter-initial-logo-design-vector-illustration-letter-initial-logo-design-vector-illustration-pks-letter-initial-logo-design-236635893.jpg?w=768"
+                  className="h-22 w-auto"
+                  src="/prernalogo1.png"
                   alt="Logo"
                 />
-                <span className="text-white font-semibold ml-2 bg-gradient-to-r from-violet-400 to-purple-400 bg-clip-text text-transparent">Prerna</span>
               </div>
 
               {/* Right: Desktop navigation links */}
