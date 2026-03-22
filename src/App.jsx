@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaFacebook, FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import About from "./components/About";
@@ -52,16 +52,16 @@ const App = () => {
 
             {/* Social Icons */}
             <div className="flex space-x-6 justify-start mt-8">
-              <a href="https://facebook.com" target="_blank" rel="noreferrer" className="group">
+              <a href="https://www.facebook.com/prernakumari.sharma.1/" target="_blank" rel="noreferrer" className="group">
                 <FaFacebook className="text-3xl text-blue-400 group-hover:text-blue-300 group-hover:scale-110 transition-all duration-300" />
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noreferrer" className="group">
-                <FaTwitter className="text-3xl text-sky-400 group-hover:text-sky-300 group-hover:scale-110 transition-all duration-300" />
+              <a href="https://github.com/prerna12github" target="_blank" rel="noreferrer" className="group">
+                <FaGithub className="text-3xl text-gray-300 group-hover:text-white group-hover:scale-110 transition-all duration-300" />
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noreferrer" className="group">
+              <a href="https://www.instagram.com/___prernaaaa__/?hl=en" target="_blank" rel="noreferrer" className="group">
                 <FaInstagram className="text-3xl text-pink-400 group-hover:text-pink-300 group-hover:scale-110 transition-all duration-300" />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="group">
+              <a href="https://www.linkedin.com/in/prerna-kumari-sharma-4304b8253/" target="_blank" rel="noreferrer" className="group">
                 <FaLinkedin className="text-3xl text-blue-500 group-hover:text-blue-400 group-hover:scale-110 transition-all duration-300" />
               </a>
             </div>
