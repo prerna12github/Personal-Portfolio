@@ -37,9 +37,9 @@ const App = () => {
                 <Typewriter
                   options={{
                     strings: [
-                      "Web Development",
+                      "Fronted Development",
+                      "Backend Development",
                       "Machine Learning",
-                      "Computer Vision",
                       "Deep Learning",
                     ],
                     autoStart: true,

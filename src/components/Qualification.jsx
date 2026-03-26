@@ -4,6 +4,12 @@ import { FaSchool, FaCalendarAlt } from "react-icons/fa";
 
 const Qualification = () => {
   const educationData = [
+     {
+      title: "Masters in Computer Application",
+      school: "Kalyani Government Engineering College| KGEC",
+      duration: "2025-2027| Pursuing",
+      img: "kgec.jpg",
+    },
     {
       title: "Bachelor of Science in Computer Honors",
       school: "Kalyani Mahavidyalaya | University of Kalyani",
