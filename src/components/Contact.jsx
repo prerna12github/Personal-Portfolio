@@ -17,11 +17,8 @@ const Contact = () => {
           className="text-center mb-16"
         >
           <h1 className="text-4xl sm:text-5xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-purple-400">
-            Connect With <span className="text-white">Me</span>
+            Lets's <span className="text-white">Connect !</span>
           </h1>
-          <p className="text-gray-300 max-w-2xl mx-auto text-lg">
-            Have a question or want to work together? Feel free to drop a message below — I'll get back to you soon.
-          </p>
         </motion.div>
 
         {/* Contact Form */}
