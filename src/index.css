@@ -3,6 +3,14 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Smooth Cursor - Hide default cursor when active */
+.smooth-cursor-active,
+.smooth-cursor-active *,
+.smooth-cursor-active *::before,
+.smooth-cursor-active *::after {
+  cursor: none !important;
+}
+
 /* Custom Animations */
 @keyframes pulse-slow {
   0%, 100% { opacity: 1; transform: scale(1); }

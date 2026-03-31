@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import AnimatedButton from "./Animatedbutton";
+import { PixelImage } from "@/components/ui/pixel-image"
 
 const About = () => {
 
@@ -14,16 +15,13 @@ const About = () => {
       <div
         className="mt-10 flex flex-col md:flex-row items-center justify-center gap-10 transition-all duration-700 ease-in-out opacity-100 translate-y-0 opacity-0 translate-y-10 pointer-events-none"
       >
-        {/* Profile Image */}
-        <div className="w-56 h-56 square-full overflow-hidden shadow-2xl hover:scale-105 transition-transform duration-300 border-4 border-purple-500/30">
-          <img
-            src="/prerna.jpg"
-            alt="Prerna Kumari Sharma"
-            className="w-90 h-full"
-          />
+        {/* Profile Image - Left Side */}
+        {/* <div className="w-56 h-56 square-full overflow-hidden shadow-2xl hover:scale-105 transition-transform duration-300 border-4 border-purple-500/30"> */}
+        <div className="flex-shrink-2">
+          <PixelImage src="/image.png" grid="6x6" />
         </div>
 
-        {/* About Text */}
+        {/* About Text - Right Side */}
         <div className="max-w-xl text-center md:text-left">
           <p className="text-gray-300 text-lg leading-relaxed">
             Hello! I'm <span className="font-semibold text-purple-300">Prerna Kumari Sharma</span>,

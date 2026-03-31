@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { StarsBackground } from './animate-ui/components/backgrounds/stars';
+import { PixelImage } from './ui/pixel-image';
 
 const scrollToProjects = () => {
   const projectsSection = document.getElementById('projects');
@@ -13,8 +14,20 @@ const Home = () => {
   return (
     <section id="home" className="relative flex items-center justify-between min-h-screen px-40">
       <StarsBackground className="absolute inset-0" starColor="#370c3fff" speed={50}>
-        {/* Left text */}
-        <div className="text-left relative z-10">
+        {/* Left image with pixel animation */}
+        <div className="relative z-10 animate-fadeInUp">
+          <PixelImage 
+            src="/prernapic.png" 
+            grid="6x4"
+            grayscaleAnimation={true}
+            pixelFadeInDuration={1000}
+            maxAnimationDelay={1200}
+            colorRevealDelay={1300}
+          />
+        </div>
+
+        {/* Right text */}
+        <div className="text-left relative z-10 animate-fadeInUp" style={{ animationDelay: '0.3s' }}>
           <h1 className="text-5xl font-extrabold text-white mb-2">Hi There, 👋</h1>
           <h2 className="text-5xl font-semibold text-white">
             I'm <span className="text-purple-300">Prerna Kumari Sharma</span>
@@ -28,11 +41,6 @@ const Home = () => {
           <a href="https://linkedin.com" target="_blank" rel="noreferrer"><FaLinkedin className="text-3xl text-blue-700 hover:scale-110 transition-transform"/></a>
         </div>
       </div>
-
-        {/* Right image */}
-        <div className="w-80 h-80 rounded-full overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300 relative z-10">
-          <img src="/prernapic.png" alt="Prerna" className="w-full h-full object-cover" />
-        </div>
       </StarsBackground>
     </section>
   );
