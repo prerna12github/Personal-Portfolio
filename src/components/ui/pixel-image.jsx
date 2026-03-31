@@ -14,10 +14,10 @@ export const PixelImage = ({
   src,
   grid = "6x4",
   grayscaleAnimation = true,
-  pixelFadeInDuration = 1000,
-  maxAnimationDelay = 1200,
-  colorRevealDelay = 1300,
-  puzzleSpread = 150,
+  pixelFadeInDuration = 1200,
+  maxAnimationDelay = 2100,
+  colorRevealDelay = 2300,
+  puzzleSpread = 200,
   customGrid
 }) => {
   const [isVisible, setIsVisible] = useState(false)
@@ -43,17 +43,17 @@ export const PixelImage = ({
 
   useEffect(() => {
     setIsVisible(true)
-    
+
     // First, pieces assemble
     const assembleTimeout = setTimeout(() => {
       setIsAssembled(true)
-    }, maxAnimationDelay + pixelFadeInDuration)
-    
-    // Then, color is revealed
+    }, maxAnimationDelay)
+
+    // Then, color is revealed after assembly
     const colorTimeout = setTimeout(() => {
       setShowColor(true)
-    }, colorRevealDelay)
-    
+    }, maxAnimationDelay + pixelFadeInDuration + colorRevealDelay)
+
     return () => {
       clearTimeout(assembleTimeout)
       clearTimeout(colorTimeout)

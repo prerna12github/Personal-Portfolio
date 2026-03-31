@@ -18,7 +18,7 @@ const About = () => {
         {/* Profile Image - Left Side */}
         {/* <div className="w-56 h-56 square-full overflow-hidden shadow-2xl hover:scale-105 transition-transform duration-300 border-4 border-purple-500/30"> */}
         <div className="flex-shrink-2">
-          <PixelImage src="/image.png" grid="6x6" />
+          <PixelImage src="/image.png" grid="6x4" />
         </div>
 
         {/* About Text - Right Side */}
