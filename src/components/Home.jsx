@@ -3,26 +3,24 @@ import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { StarsBackground } from './animate-ui/components/backgrounds/stars';
 import { PixelImage } from './ui/pixel-image';
 
-const scrollToProjects = () => {
-  const projectsSection = document.getElementById('projects');
-  if (projectsSection) {
-    projectsSection.scrollIntoView({ behavior: 'smooth' });
-  }
-};
-
 const Home = () => {
   return (
     <section id="home" className="relative flex items-center justify-between min-h-screen px-40">
       <StarsBackground className="absolute inset-0" starColor="#370c3fff" speed={50}>
         {/* Left image with pixel animation */}
         <div className="relative z-10 animate-fadeInUp">
-          <PixelImage 
-            src="/prernapic.png" 
+          <PixelImage
+            src="/prernapic.png"
             grid="6x4"
             grayscaleAnimation={true}
-            pixelFadeInDuration={1000}
-            maxAnimationDelay={1200}
-            colorRevealDelay={1300}
+            pixelFadeInDuration={1200}
+            maxAnimationDelay={1500}
+            colorRevealDelay={1500}
+            puzzleSpread={250}
+            triggerAnimation={true}
+            animationType="spiral"
+            glowEffect={true}
+            shimmerEffect={true}
           />
         </div>
 
