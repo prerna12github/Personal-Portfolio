@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import About from "./components/About";
 import Qualification from "./components/Qualification";
+import Skills from "./components/Skills";
 import Typewriter from "typewriter-effect";
 import Contact from "./components/Contact";
 import Projects from "./components/Projects";
@@ -118,6 +119,9 @@ const App = () => {
 
         {/* 🎓 Qualification Section */}
         <Qualification />
+
+        {/* 💡 Skills Section */}
+        <Skills />
 
         {/* 📚 Projects Section */}
         <Projects />
