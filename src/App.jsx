@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaFacebook, FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -12,6 +12,23 @@ import { StarsBackground } from "./components/animate-ui/components/backgrounds/
 import { SmoothCursor } from "@/components/ui/smooth-cursor"
 
 const App = () => {
+  const [showNavbar, setShowNavbar] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const homeSection = document.getElementById('home');
+      if (homeSection) {
+        const homeRect = homeSection.getBoundingClientRect();
+        // Show navbar only when home section is in view
+        const isHomeVisible = homeRect.top <= 100 && homeRect.bottom > 100;
+        setShowNavbar(isHomeVisible);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const scrollToProjects = () => {
     const projectsSection = document.getElementById('projects');
     if (projectsSection) {
@@ -22,7 +39,9 @@ const App = () => {
     <div className="scroll-smooth bg-slate-950">
       <StarsBackground className="min-h-screen" speed={50} starColor="#a78bfa">
         <SmoothCursor />
-        <Navbar />
+        <div className={`transition-transform duration-300 ${showNavbar ? 'translate-y-0' : '-translate-y-full'}`}>
+          <Navbar />
+        </div>
 
         {/* 🏠 Home Section */}
         <section id="home" className="flex items-center h-screen px-4 md:px-20 lg:px-40 gap-x-10 lg:gap-x-20">
