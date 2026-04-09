@@ -1,36 +1,113 @@
-import { useEffect, useState } from "react"
+import { useState, useMemo } from "react"
 import { CardImage } from "./CardImage"
 
+// ─── Edit your projects here ────────────────────────────────────────────────
+const projectsData = [
+  {
+    id: 1,
+    title: "Project One",
+    description: "A brief description of your first project. What it does and what you learned.",
+    image_url: "/image.png",
+    project_url: "https://github.com/yourusername/project1",
+    tech_stack: ["React", "Tailwind CSS", "Vite"],
+    featured: true,
+  },
+  {
+    id: 2,
+    title: "Project Two",
+    description: "Description of your second project. Highlight key features and technologies.",
+    image_url: "/clg.jpg",
+    project_url: "https://github.com/yourusername/project2",
+    tech_stack: ["Node.js", "Express", "MongoDB"],
+    featured: false,
+  },
+  {
+    id: 3,
+    title: "Project Three",
+    description: "Description of your third project. Keep it concise but informative.",
+    image_url: "/kgec.jpg",
+    project_url: "https://github.com/yourusername/project3",
+    tech_stack: ["Python", "Django", "PostgreSQL"],
+    featured: false,
+  },
+]
+// ─────────────────────────────────────────────────────────────────────────────
+
 const Projects = () => {
-  const [projects, setProjects] = useState([])
+  const [activeFilter, setActiveFilter] = useState("All")
 
-  useEffect(() => {
-    const fetchProjects = async () => {
-      const { data, error } = await supabase
-        .from("projects")
-        .select("*")
-        .order("created_at", { ascending: false })
+  const filters = useMemo(
+    () => ["All", ...new Set(projectsData.flatMap((p) => p.tech_stack || []))],
+    []
+  )
 
-      console.log("SUPABASE DATA 👉", data)
-      console.log("SUPABASE ERROR 👉", error)
-
-      if (!error) setProjects(data)
-    }
-
-    fetchProjects()
-  }, [])
+  const filteredProjects =
+    activeFilter === "All"
+      ? projectsData
+      : projectsData.filter((p) => (p.tech_stack || []).includes(activeFilter))
 
   return (
-    <section id="projects" className="min-h-screen flex flex-col items-center justify-center p-10 bg-purple-950/20">
-      <h2 className="text-4xl md:text-5xl font-bold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-purple-400">My Projects</h2>
-      <p className="text-gray-400 mb-12 text-lg">
-        Here are some of my projects
-      </p>
+    <section id="projects" className="relative min-h-screen py-24 px-4 md:px-10 overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-gradient-to-b from-purple-950/10 via-transparent to-purple-950/10 pointer-events-none" />
+      <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl animate-blob pointer-events-none" />
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-violet-500/15 rounded-full blur-3xl animate-blob animation-delay-2000 pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl animate-blob animation-delay-4000 pointer-events-none" />
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projects.map(project => (
-          <CardImage key={project.id} project={project} />
-        ))}
+      <div className="relative z-10 max-w-7xl mx-auto">
+        {/* Section Header */}
+        <div className="text-center mb-16 animate-fadeInUp">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 mb-6">
+            <span className="w-2 h-2 rounded-full bg-purple-400 animate-pulse" />
+            <span className="text-sm font-medium text-purple-300">Portfolio</span>
+          </div>
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 animate-gradient">
+            My Projects
+          </h2>
+          <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">
+            A showcase of my work, experiments, and creative solutions
+          </p>
+          <div className="w-24 h-1 bg-gradient-to-r from-violet-500 to-purple-500 mx-auto mt-6 rounded-full" />
+        </div>
+
+        {/* Filter Tabs */}
+        {filters.length > 1 && (
+          <div className="flex flex-wrap justify-center gap-3 mb-12 animate-fadeInUp">
+            {filters.map((filter) => (
+              <button
+                key={filter}
+                onClick={() => setActiveFilter(filter)}
+                className={`px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 border ${
+                  activeFilter === filter
+                    ? "bg-gradient-to-r from-violet-600 to-purple-600 text-white border-transparent shadow-lg shadow-purple-500/25 scale-105"
+                    : "bg-white/5 text-gray-400 border-white/10 hover:bg-white/10 hover:text-white hover:border-purple-500/30"
+                }`}
+              >
+                {filter}
+              </button>
+            ))}
+          </div>
+        )}
+
+        {/* Projects Grid */}
+        {filteredProjects.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredProjects.map((project, index) => (
+              <div
+                key={project.id}
+                className="animate-fadeInUp"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <CardImage project={project} />
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-20">
+            <div className="text-6xl mb-4">🔍</div>
+            <p className="text-gray-400 text-lg">No projects found for this filter</p>
+          </div>
+        )}
       </div>
     </section>
   )
