@@ -45,7 +45,7 @@ const About = () => {
           className="inline-flex items-center gap-2 px-6 py-3 mb-6"
         >
         </motion.div>
-        <h1 className="text-3xl md:text-3xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400">
+        <h1 className="text-6xl md:text-6xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400">
           About Me
         </h1>
         <div className="mt-4 h-1 w-32 mx-auto bg-gradient-to-r from-violet-500 to-indigo-500 rounded-full" />

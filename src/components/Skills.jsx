@@ -148,13 +148,13 @@ const Skills = () => {
       className="min-h-screen flex flex-col items-center justify-center p-6 md:p-10 lg:p-20 relative overflow-hidden"
     >
       {/* Animated Background Gradients */}
-      <div className="absolute inset-0 bg-gradient-to-br from-violet-950/20 via-transparent to-indigo-950/20 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-br from-violet-500/20 via-transparent to-indigo-500/20 pointer-events-none" />
       
       {/* Floating Orbs */}
       {[
-        { top: "10%", left: "5%", color: "bg-purple-500", size: "w-96 h-96", duration: 12 },
-        { top: "60%", right: "10%", color: "bg-blue-500", size: "w-80 h-80", duration: 15 },
-        { bottom: "15%", left: "15%", color: "bg-cyan-500", size: "w-72 h-72", duration: 10 },
+        { top: "10%", left: "5%", color: "bg-purple-500/20", size: "w-96 h-96", duration: 12 },
+        { top: "60%", right: "10%", color: "bg-blue-500/20", size: "w-80 h-80", duration: 15 },
+        { bottom: "15%", left: "15%", color: "bg-cyan-500/20", size: "w-72 h-72", duration: 10 },
       ].map((orb, i) => (
         <motion.div
           key={i}
@@ -193,7 +193,7 @@ const Skills = () => {
         className="text-center mb-12 relative z-10"
       >
        
-        <h2 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 mb-4 tracking-tight">
+        <h2 className="text-5xl md:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 mb-4 tracking-tight">
           My Skills
         </h2>
         <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">

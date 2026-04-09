@@ -76,14 +76,12 @@ const Qualification = () => {
             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
             className="inline-block mb-4"
           >
-            <FaGraduationCap className="text-6xl text-purple-400" />
+            
           </motion.div>
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-400 to-pink-400 mb-4 tracking-tight">
+          <h2 className="text-6xl md:text-6xl lg:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-400 to-pink-400 mb-4 tracking-tight">
             My Qualifications
           </h2>
-          <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-            Academic Journey & Educational Milestones
-          </p>
+         
           <motion.div 
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
@@ -277,9 +275,7 @@ const Qualification = () => {
           transition={{ delay: 0.8 }}
           className="mt-16 flex items-center gap-3 text-gray-500"
         >
-          <div className="h-px w-12 bg-gradient-to-r from-transparent to-purple-500/50" />
-          <span className="text-sm">Building knowledge, shaping future</span>
-          <div className="h-px w-12 bg-gradient-to-l from-transparent to-purple-500/50" />
+         
         </motion.div>
       </div>
     </section>
