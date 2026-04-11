@@ -6,7 +6,7 @@ const Footer = () => {
   const socialLinks = [
     {
       name: 'Facebook',
-      url: 'https://facebook.com',
+      url: 'https://www.facebook.com/prernakumari.sharma.1/',
       icon: (
         <svg fill="currentColor" viewBox="0 0 24 24" className="w-5 h-5">
           <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
@@ -14,19 +14,10 @@ const Footer = () => {
       ),
       hoverColor: 'hover:text-blue-500 hover:scale-110'
     },
-    {
-      name: 'Twitter',
-      url: 'https://twitter.com/prerna_sharma',
-      icon: (
-        <svg fill="currentColor" viewBox="0 0 24 24" className="w-5 h-5">
-          <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
-        </svg>
-      ),
-      hoverColor: 'hover:text-sky-400 hover:scale-110'
-    },
+
     {
       name: 'Instagram',
-      url: 'https://instagram.com',
+      url: 'https://www.instagram.com/___prernaaaa__/?hl=en',
       icon: (
         <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" className="w-5 h-5">
           <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
@@ -37,7 +28,7 @@ const Footer = () => {
     },
     {
       name: 'LinkedIn',
-      url: 'https://linkedin.com',
+      url: 'https://www.linkedin.com/in/prerna-kumari-sharma-4304b8253/',
       icon: (
         <svg fill="currentColor" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="0" viewBox="0 0 24 24" className="w-5 h-5">
           <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
@@ -48,7 +39,7 @@ const Footer = () => {
     },
     {
       name: 'GitHub',
-      url: 'https://github.com',
+      url: 'https://github.com/prerna12github',
       icon: (
         <svg fill="currentColor" viewBox="0 0 24 24" className="w-5 h-5">
           <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
@@ -71,13 +62,9 @@ const Footer = () => {
             <a href="/" className="flex items-center gap-3 group">
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-violet-500 to-purple-500 rounded-full blur-sm opacity-50 group-hover:opacity-75 transition-opacity" />
-                <img
-                  src="https://thumbs.dreamstime.com/b/pks-letter-initial-logo-design-vector-illustration-letter-initial-logo-design-vector-illustration-pks-letter-initial-logo-design-236635893.jpg"
-                  alt="Logo"
-                  className="relative w-12 h-12 p-1 rounded-full bg-slate-800 border-2 border-white/20 group-hover:border-purple-500/50 transition-colors"
-                />
+    
               </div>
-              <span className="text-2xl font-bold bg-gradient-to-r from-violet-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="text-2xl  font-bold bg-gradient-to-r from-violet-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
               PRERNA
               </span>
             </a>
@@ -114,7 +101,7 @@ const Footer = () => {
               href="mailto:prerna@example.com" 
               className="text-sm text-gray-400 hover:text-purple-400 transition-colors"
             >
-              prerna@example.com
+              prernakumarisharma2003@gmail.com
             </a>
             <p className="text-sm text-gray-500">
               Based in India
@@ -129,7 +116,7 @@ const Footer = () => {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4">
           {/* Copyright */}
           <p className="text-sm text-gray-500 text-center sm:text-left">
-            © {currentYear} <span className="text-purple-400 font-medium">Prerna Sharma</span>. All rights reserved.
+            © {currentYear} <span className="text-purple-400 font-medium">Prerna Kumari Sharma</span>. All rights reserved.
           </p>
 
           {/* Social links */}
