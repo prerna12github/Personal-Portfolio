@@ -33,11 +33,11 @@ const Navbar = () => {
 
               {/* Left: Logo + Name */}
               <div className="flex items-center">
-                <img
-                  className="h-22 w-auto"
-                  src="/prernalogo1.png"
-                  alt="Logo"
-                />
+                <a href="#home" onClick={(e) => scrollToSection(e, '#home')} className="group">
+                  <span className="text-2xl font-mono font-bold bg-gradient-to-r from-violet-400 via-purple-400 to-pink-400 bg-clip-text text-transparent group-hover:from-violet-300 group-hover:via-purple-300 group-hover:to-pink-300 transition-all duration-300">
+                    PRERNA
+                  </span>
+                </a>
               </div>
 
               {/* Right: Desktop navigation links */}

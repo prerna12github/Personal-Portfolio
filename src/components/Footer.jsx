@@ -64,7 +64,7 @@ const Footer = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-violet-500 to-purple-500 rounded-full blur-sm opacity-50 group-hover:opacity-75 transition-opacity" />
     
               </div>
-              <span className="text-2xl  font-bold bg-gradient-to-r from-violet-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="text-2xl font-mono font-bold bg-gradient-to-r from-violet-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
               PRERNA
               </span>
             </a>
