@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { Mail, MapPin, Send, Phone, User, MessageSquare } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Mail, MapPin, Send, Phone, User, MessageSquare, CheckCircle } from "lucide-react";
 import { FaFacebook, FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 const Contact = () => {
@@ -10,7 +10,8 @@ const Contact = () => {
     message: "",
   });
   const [focusedField, setFocusedField] = useState(null);
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState(null);
+  const [showThankYou, setShowThankYou] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -18,14 +19,35 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    alert("Thank you for your message! I'll get back to you soon.");
-    setFormData({ name: "", email: "", message: "" });
-    setIsSubmitting(false);
+    setStatus("loading");
+
+    try {
+      const response = await fetch("http://localhost:8000/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+
+      });
+
+      if (!response.ok)
+        throw new Error("Server error");
+
+      const data = await response.json();
+      console.log(data);
+      setStatus("success");
+      setFormData({ name: "", email: "", message: "" });
+      setShowThankYou(true);
+      
+      // Auto-hide thank message after 5 seconds
+      setTimeout(() => {
+        setShowThankYou(false);
+        setStatus(null);
+      }, 5000);
+    }
+    catch (err) {
+      console.error(err);
+      setStatus("error");
+    }
   };
 
   const contactInfo = [
@@ -93,12 +115,12 @@ const Contact = () => {
           viewport={{ once: false, amount: 0.3 }}
           className="text-center mb-16"
         >
-          
+
           <h1 className="text-4xl sm:text-6xl md:text-6xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400">
             Let's Work Together!
           </h1>
           <p className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-            Have a project in mind or want to discuss a potential collaboration? 
+            Have a project in mind or want to discuss a potential collaboration?
             I'd love to hear from you. Let's create something amazing!
           </p>
         </motion.div>
@@ -154,11 +176,10 @@ const Contact = () => {
               <div className="relative group">
                 <label
                   htmlFor="name"
-                  className={`absolute left-12 transition-all duration-300 pointer-events-none ${
-                    focusedField === "name" || formData.name
+                  className={`absolute left-12 transition-all duration-300 pointer-events-none ${focusedField === "name" || formData.name
                       ? "-top-3 text-xs text-purple-400 bg-slate-800 px-2 rounded"
                       : "top-4 text-gray-500"
-                  }`}
+                    }`}
                 >
                   Your Name
                 </label>
@@ -186,11 +207,10 @@ const Contact = () => {
               <div className="relative group">
                 <label
                   htmlFor="email"
-                  className={`absolute left-12 transition-all duration-300 pointer-events-none ${
-                    focusedField === "email" || formData.email
+                  className={`absolute left-12 transition-all duration-300 pointer-events-none ${focusedField === "email" || formData.email
                       ? "-top-3 text-xs text-purple-400 bg-slate-800 px-2 rounded"
                       : "top-4 text-gray-500"
-                  }`}
+                    }`}
                 >
                   Your Email
                 </label>
@@ -218,11 +238,10 @@ const Contact = () => {
               <div className="relative group">
                 <label
                   htmlFor="message"
-                  className={`absolute left-12 transition-all duration-300 pointer-events-none ${
-                    focusedField === "message" || formData.message
+                  className={`absolute left-12 transition-all duration-300 pointer-events-none ${focusedField === "message" || formData.message
                       ? "-top-3 text-xs text-purple-400 bg-slate-800 px-2 rounded"
                       : "top-4 text-gray-500"
-                  }`}
+                    }`}
                 >
                   Your Message
                 </label>
@@ -250,7 +269,7 @@ const Contact = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 type="submit"
-                disabled={isSubmitting}
+                disabled={status == "loading"}
                 className="group relative inline-flex mx-auto h-14 active:scale-95 transition overflow-hidden rounded-full p-[1px] focus:outline-none hover:shadow-xl hover:shadow-purple-500/50 disabled:opacity-70 disabled:cursor-not-allowed"
               >
                 <span
@@ -259,7 +278,7 @@ const Contact = () => {
                 <span
                   className="inline-flex items-center h-full w-full cursor-pointer justify-center rounded-full bg-slate-950 px-12 text-base font-semibold text-white backdrop-blur-3xl gap-3"
                 >
-                  {isSubmitting ? (
+                  {status == "loading" ? (
                     <>
                       <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
                       Sending...
@@ -273,8 +292,93 @@ const Contact = () => {
                 </span>
               </motion.button>
             </div>
+            {status === "success" && (
+              <p className="text-green-400 text-center w-full mt-2">
+                ✅ Message sent successfully!
+              </p>
+            )}
+            {status === "error" && (
+              <p className="text-red-400 text-center w-full mt-2">
+                ❌ Something went wrong. Please try again.
+              </p>
+            )}
           </form>
         </motion.div>
+
+        {/* Thank You Message Overlay */}
+        <AnimatePresence>
+          {showThankYou && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8, y: 50 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.8, y: 50 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none"
+            >
+              {/* Backdrop */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+              />
+              
+              {/* Thank You Card */}
+              <motion.div
+                className="relative bg-gradient-to-br from-slate-800/95 to-slate-900/95 backdrop-blur-xl p-12 md:p-16 rounded-3xl shadow-2xl border border-purple-500/40 max-w-lg w-full text-center"
+              >
+                {/* Decorative gradients */}
+                <div className="absolute -top-20 -right-20 w-64 h-64 bg-gradient-to-br from-violet-500/30 to-purple-500/30 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-gradient-to-tr from-indigo-500/30 to-purple-500/30 rounded-full blur-3xl pointer-events-none" />
+                
+                <div className="relative z-10">
+                  {/* Animated Check Circle */}
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+                    className="mx-auto mb-6 w-24 h-24 rounded-full bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center shadow-lg"
+                  >
+                    <CheckCircle className="w-12 h-12 text-white" />
+                  </motion.div>
+
+                  {/* Thank You Text */}
+                  <motion.h2
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3, duration: 0.5 }}
+                    className="text-3xl md:text-4xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-emerald-400 to-teal-400"
+                  >
+                    Thank You!
+                  </motion.h2>
+                  
+                  <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4, duration: 0.5 }}
+                    className="text-gray-200 text-lg md:text-xl leading-relaxed"
+                  >
+                    Thank you for your message. I will get back to you soon!
+                  </motion.p>
+
+                  {/* Decorative sparkle */}
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: [0, 1, 0] }}
+                    transition={{ delay: 0.5, duration: 1.5, repeat: 2 }}
+                    className="absolute top-4 right-4 w-2 h-2 bg-purple-400 rounded-full blur-sm"
+                  />
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: [0, 1, 0] }}
+                    transition={{ delay: 0.6, duration: 1.5, repeat: 2 }}
+                    className="absolute bottom-4 left-4 w-2 h-2 bg-violet-400 rounded-full blur-sm"
+                  />
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* Social Links */}
         <motion.div
