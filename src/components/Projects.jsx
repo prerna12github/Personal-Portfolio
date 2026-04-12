@@ -23,7 +23,7 @@ const projectsData = [
   },
   {
     id: 3,
-    title: "TO-DO List",
+    title: "Cute Pink TO-DO App",
     description: "A simple and aesthetic To-Do List application that supports task persistence using localStorage, check & strike functionality, icon-based actions, and soft glow UI effects",
     image_url: "/todo.png",
     project_url: "https://github.com/prerna12github/TO-DO-List",
