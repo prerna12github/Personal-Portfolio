@@ -57,9 +57,7 @@ const Projects = () => {
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16 animate-fadeInUp">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 mb-6">
-            <span className="w-2 h-2 rounded-full bg-purple-400 animate-pulse" />
-            <span className="text-sm font-medium text-purple-300">Portfolio</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 order-purple-500/20 mb-6">
           </div>
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 animate-gradient">
             My Projects
@@ -70,24 +68,7 @@ const Projects = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-violet-500 to-purple-500 mx-auto mt-6 rounded-full" />
         </div>
 
-        {/* Filter Tabs */}
-        {filters.length > 1 && (
-          <div className="flex flex-wrap justify-center gap-3 mb-12 animate-fadeInUp">
-            {filters.map((filter) => (
-              <button
-                key={filter}
-                onClick={() => setActiveFilter(filter)}
-                className={`px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 border ${
-                  activeFilter === filter
-                    ? "bg-gradient-to-r from-violet-600 to-purple-600 text-white border-transparent shadow-lg shadow-purple-500/25 scale-105"
-                    : "bg-white/5 text-gray-400 border-white/10 hover:bg-white/10 hover:text-white hover:border-purple-500/30"
-                }`}
-              >
-                {filter}
-              </button>
-            ))}
-          </div>
-        )}
+       
 
         {/* Projects Grid */}
         {filteredProjects.length > 0 ? (
