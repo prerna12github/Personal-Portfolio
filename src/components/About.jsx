@@ -35,11 +35,14 @@ const About = () => {
   return (
     <section
       id="about"
-      className="min-h-screen flex flex-col items-center justify-center p-6 md:p-16 relative overflow-hidden"
+      className="min-h-screen flex flex-col items-center justify-center p-6 md:p-16 relative overflow-hidden scroll-smooth"
     >
-      {/* Background gradient effects */}
-      <div className="absolute top-20 -left-20 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-20 -right-20 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl pointer-events-none" />
+      {/* Animated Background Gradients */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-20 left-10 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-violet-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-500/10 rounded-full blur-3xl" />
+      </div>
 
       {/* Section Title */}
       <motion.div
@@ -54,7 +57,7 @@ const About = () => {
           className="inline-flex items-center gap-2 px-6 py-3 mb-6"
         >
         </motion.div>
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400">
           About Me
         </h1>
         <div className="mt-4 h-1 w-32 mx-auto bg-gradient-to-r from-violet-500 to-indigo-500 rounded-full" />

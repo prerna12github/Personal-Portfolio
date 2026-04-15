@@ -66,12 +66,10 @@ const Projects = () => {
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 order-purple-500/20 mb-6">
           </div>
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400">
             My Projects
           </h2>
-          <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">
-            A showcase of my work, experiments, and creative solutions
-          </p>
+          
           <motion.div
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}

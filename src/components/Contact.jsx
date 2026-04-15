@@ -115,14 +115,16 @@ const Contact = () => {
           viewport={{ once: false, amount: 0.3 }}
           className="text-center mb-16"
         >
-
-          <h1 className="text-4xl sm:text-6xl md:text-6xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400">
-            Let's Work Together!
+          <h1 className="text-4xl sm:text-5xl md:text-5xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400">
+            Let's Connect!
           </h1>
-          <p className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-            Have a project in mind or want to discuss a potential collaboration?
-            I'd love to hear from you. Let's create something amazing!
-          </p>
+          <motion.div
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: false }}
+            transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
+            className="w-32 h-1 bg-gradient-to-r from-violet-500 to-purple-500 mx-auto rounded-full origin-center"
+          />
         </motion.div>
 
         {/* Contact Info Cards */}

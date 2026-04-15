@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { FaFacebook, FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -12,36 +12,18 @@ import { StarsBackground } from "./components/animate-ui/components/backgrounds/
 import { SmoothCursor } from "@/components/ui/smooth-cursor"
 
 const App = () => {
-  const [showNavbar, setShowNavbar] = useState(true);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const homeSection = document.getElementById('home');
-      if (homeSection) {
-        const homeRect = homeSection.getBoundingClientRect();
-        // Show navbar only when home section is in view
-        const isHomeVisible = homeRect.top <= 100 && homeRect.bottom > 100;
-        setShowNavbar(isHomeVisible);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   const scrollToProjects = () => {
     const projectsSection = document.getElementById('projects');
     if (projectsSection) {
       projectsSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
   return (
     <div className="scroll-smooth bg-slate-950">
       <StarsBackground className="min-h-screen" speed={50} starColor="#a78bfa">
         <SmoothCursor />
-        <div className={`transition-transform duration-300 ${showNavbar ? 'translate-y-0' : '-translate-y-full'}`}>
-          <Navbar />
-        </div>
+        <Navbar />
 
         {/* 🏠 Home Section */}
         <section id="home" className="flex items-center h-screen px-4 md:px-20 lg:px-40 gap-x-10 lg:gap-x-20">
@@ -123,7 +105,7 @@ const App = () => {
 
           {/* Right Side Image */}
           <div className="hidden md:flex w-1/3 justify-center">
-            <div className="w-80 h-80 lg:w-95 lg:h-95 rounded-full overflow-hidden shadow-2xl hover:scale-105 transition-transform duration-500 border-4 border-purple-500/30 animate-float">
+            <div className="w-95 h-95 lg:w-95 lg:h-95 rounded-full overflow-hidden shadow-2xl hover:scale-105 transition-transform duration-500 border-4 border-purple-500/30 animate-float">
               <img
                 src="/prernapic.png"
                 alt="Prerna Kumari Sharma"

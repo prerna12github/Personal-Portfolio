@@ -201,53 +201,55 @@ const Skills = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.7, ease: "easeOut" }}
-        className="text-center mb-12 relative z-10"
+        className="text-center mb-16 relative z-10"
       >
-       
-        <h2 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 mb-4 tracking-tight">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 mb-4 tracking-tight">
           My Skills
         </h2>
-        <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-          Technologies & Tools I Work With
-        </p>
+        <motion.div
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
+          className="w-32 h-1 bg-gradient-to-r from-violet-500 to-purple-500 mx-auto rounded-full origin-center"
+        />
       </motion.div>
 
-      {/* Category Filter Tabs - Modern Glass Design */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.3, duration: 0.6 }}
-        className="flex flex-wrap justify-center gap-3 mb-14 relative z-10"
-      >
-        <div className="bg-slate-900/50 backdrop-blur-xl p-2 rounded-2xl border border-white/10 inline-flex gap-2">
-          {skillCategories.map((category) => (
-            <motion.button
-              key={category.id}
-              onClick={() => setActiveCategory(category.id)}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className={`px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 flex items-center gap-2 ${
-                activeCategory === category.id
-                  ? "bg-gradient-to-r from-violet-600 to-purple-600 text-white shadow-lg shadow-purple-500/40"
-                  : "text-gray-400 hover:text-white hover:bg-white/5"
-              }`}
-            >
-              <span>{category.icon}</span>
-              <span>{category.label}</span>
-            </motion.button>
-          ))}
-        </div>
-      </motion.div>
+      <div className="container mx-auto max-w-7xl relative z-10">
+        {/* Category Filter Tabs - Modern Glass Design */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="flex flex-wrap justify-center gap-3 mb-14"
+        >
+          <div className="bg-slate-900/50 backdrop-blur-xl p-2 rounded-2xl border border-white/10 inline-flex gap-2">
+            {skillCategories.map((category) => (
+              <motion.button
+                key={category.id}
+                onClick={() => setActiveCategory(category.id)}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className={`px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 flex items-center gap-2 ${
+                  activeCategory === category.id
+                    ? "bg-gradient-to-r from-violet-600 to-purple-600 text-white shadow-lg shadow-purple-500/40"
+                    : "text-gray-400 hover:text-white hover:bg-white/5"
+                }`}
+              >
+                <span>{category.label}</span>
+              </motion.button>
+            ))}
+          </div>
+        </motion.div>
 
-
-      {/* Skills Grid - Modern Card Design */}
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.1 }}
-        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5 max-w-7xl w-full relative z-10"
-      >
+        {/* Skills Grid - Modern Card Design */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5"
+        >
         {filteredSkills.map((skill, index) => {
           const IconComponent = skill.icon;
 
@@ -297,7 +299,8 @@ const Skills = () => {
               </motion.div>
             );
           })}
-      </motion.div>
+        </motion.div>
+      </div>
     </section>
   );
 };
