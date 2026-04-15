@@ -1,44 +1,106 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { StarsBackground } from './animate-ui/components/backgrounds/stars';
 import { PixelImage } from './ui/pixel-image';
 
 const Home = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2, delayChildren: 0.3 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+  };
+
   return (
     <section id="home" className="relative flex items-center justify-between min-h-screen px-40">
       <StarsBackground className="absolute inset-0" starColor="#370c3fff" speed={50}>
         {/* Left image with pixel animation */}
-        <div className="relative z-10 animate-fadeInUp">
-          <PixelImage
-            src="/prernapic.png"
-            grid="6x4"
-            grayscaleAnimation={true}
-            pixelFadeInDuration={1200}
-            maxAnimationDelay={1500}
-            colorRevealDelay={1500}
-            puzzleSpread={250}
-            triggerAnimation={true}
-            animationType="spiral"
-            glowEffect={true}
-            shimmerEffect={true}
-          />
-        </div>
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="relative z-10"
+        >
+          <motion.div variants={itemVariants}>
+            <PixelImage
+              src="/prernapic.png"
+              grid="6x4"
+              grayscaleAnimation={true}
+              pixelFadeInDuration={1200}
+              maxAnimationDelay={1500}
+              colorRevealDelay={1500}
+              puzzleSpread={250}
+              triggerAnimation={true}
+              animationType="spiral"
+              glowEffect={true}
+              shimmerEffect={true}
+            />
+          </motion.div>
+        </motion.div>
 
         {/* Right text */}
-        <div className="text-left relative z-10 animate-fadeInUp" style={{ animationDelay: '0.3s' }}>
-          <h1 className="text-5xl font-extrabold text-white mb-2">Hi There, 👋</h1>
-          <h2 className="text-5xl font-semibold text-white">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="text-left relative z-10"
+        >
+          <motion.h1 variants={itemVariants} className="text-5xl font-extrabold text-white mb-2">
+            Hi There, 👋
+          </motion.h1>
+          <motion.h2 variants={itemVariants} className="text-5xl font-semibold text-white">
             I'm <span className="text-purple-300">Prerna Kumari Sharma</span>
-          </h2>
+          </motion.h2>
 
           {/* Social icons */}
-           <div className="flex space-x-6 mt-8">
-          <a href="https://facebook.com" target="_blank" rel="noreferrer"><FaFacebook className="text-3xl text-blue-600 hover:scale-110 transition-transform"/></a>
-          <a href="https://twitter.com" target="_blank" rel="noreferrer"><FaTwitter className="text-3xl text-blue-400 hover:scale-110 transition-transform"/></a>
-          <a href="https://instagram.com" target="_blank" rel="noreferrer"><FaInstagram className="text-3xl text-pink-500 hover:scale-110 transition-transform"/></a>
-          <a href="https://linkedin.com" target="_blank" rel="noreferrer"><FaLinkedin className="text-3xl text-blue-700 hover:scale-110 transition-transform"/></a>
-        </div>
-      </div>
+          <motion.div variants={itemVariants} className="flex space-x-6 mt-8">
+            <motion.a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noreferrer"
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <FaFacebook className="text-3xl text-blue-600 transition-transform"/>
+            </motion.a>
+            <motion.a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noreferrer"
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <FaTwitter className="text-3xl text-blue-400 transition-transform"/>
+            </motion.a>
+            <motion.a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noreferrer"
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <FaInstagram className="text-3xl text-pink-500 transition-transform"/>
+            </motion.a>
+            <motion.a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noreferrer"
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <FaLinkedin className="text-3xl text-blue-700 transition-transform"/>
+            </motion.a>
+          </motion.div>
+        </motion.div>
       </StarsBackground>
     </section>
   );

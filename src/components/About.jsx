@@ -19,6 +19,15 @@ const About = () => {
     visible: {
       opacity: 1,
       y: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, scale: 0.9 },
+    visible: {
+      opacity: 1,
+      scale: 1,
       transition: { duration: 0.6, ease: "easeOut" },
     },
   };
@@ -136,11 +145,12 @@ const About = () => {
 
             {/* Interest Cards */}
             <motion.div
-              variants={itemVariants}
+              variants={containerVariants}
               className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8"
             >
               {/* Web Development Card */}
               <motion.div
+                variants={cardVariants}
                 whileHover={{ scale: 1.05, y: -5 }}
                 className="p-5 rounded-2xl bg-gradient-to-br from-violet-500/10 to-purple-500/10 border border-violet-500/20 backdrop-blur-sm group hover:border-violet-500/40 transition-all duration-300"
               >
@@ -157,6 +167,7 @@ const About = () => {
 
               {/* AI/ML Interest Card */}
               <motion.div
+                variants={cardVariants}
                 whileHover={{ scale: 1.05, y: -5 }}
                 className="p-5 rounded-2xl bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-500/20 backdrop-blur-sm group hover:border-cyan-500/40 transition-all duration-300"
               >
@@ -174,10 +185,7 @@ const About = () => {
 
             {/* Passion Statement */}
             <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.6 }}
+              variants={itemVariants}
               className="mt-8 p-6 rounded-2xl bg-gradient-to-r from-violet-500/5 to-indigo-500/5 border border-purple-500/20"
             >
               <div className="flex items-start gap-3">

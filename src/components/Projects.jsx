@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react"
+import { motion } from "framer-motion"
 import { CardImage } from "./CardImage"
 
 // ─── Edit your projects here ────────────────────────────────────────────────
@@ -56,39 +57,76 @@ const Projects = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-16 animate-fadeInUp">
+        <motion.div
+          initial={{ opacity: 0, y: -50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.3 }}
+          className="text-center mb-16"
+        >
           <div className="inline-flex items-center gap-2 px-4 py-2 order-purple-500/20 mb-6">
           </div>
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 animate-gradient">
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400">
             My Projects
           </h2>
           <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">
             A showcase of my work, experiments, and creative solutions
           </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-violet-500 to-purple-500 mx-auto mt-6 rounded-full" />
-        </div>
+          <motion.div
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
+            className="w-24 h-1 bg-gradient-to-r from-violet-500 to-purple-500 mx-auto mt-6 rounded-full origin-center"
+          />
+        </motion.div>
 
        
 
         {/* Projects Grid */}
-        {filteredProjects.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map((project, index) => (
-              <div
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: { staggerChildren: 0.15 },
+            },
+          }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          {filteredProjects.length > 0 ? (
+            filteredProjects.map((project) => (
+              <motion.div
                 key={project.id}
-                className="animate-fadeInUp"
-                style={{ animationDelay: `${index * 100}ms` }}
+                variants={{
+                  hidden: { opacity: 0, y: 40, scale: 0.95 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                    transition: { duration: 0.7, ease: "easeOut" },
+                  },
+                }}
+                whileHover={{ y: -8, scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
                 <CardImage project={project} />
-              </div>
-            ))}
-          </div>
-        ) : (
-          <div className="text-center py-20">
-            <div className="text-6xl mb-4">🔍</div>
-            <p className="text-gray-400 text-lg">No projects found for this filter</p>
-          </div>
-        )}
+              </motion.div>
+            ))
+          ) : (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="text-center py-20 col-span-full"
+            >
+              <div className="text-6xl mb-4">🔍</div>
+              <p className="text-gray-400 text-lg">No projects found for this filter</p>
+            </motion.div>
+          )}
+        </motion.div>
       </div>
     </section>
   )
