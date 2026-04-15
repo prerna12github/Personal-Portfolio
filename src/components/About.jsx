@@ -65,7 +65,7 @@ const About = () => {
             variants={itemVariants}
             className="relative group"
           >
-            <div className="relative w-72 h-72 md:w-80 md:h-80 mx-auto">
+            <div className="relative w-72 h-96 md:w-96 md:h-[500px] mx-auto">
               {/* Animated border ring */}
               <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-violet-500 via-purple-500 to-indigo-500 p-1 animate-gradient-xy">
                 <div className="w-full h-full rounded-3xl bg-gray-900/90 backdrop-blur-sm" />
