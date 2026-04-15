@@ -115,7 +115,7 @@ const Contact = () => {
           viewport={{ once: false, amount: 0.3 }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl sm:text-5xl md:text-5xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400">
             Let's Connect!
           </h1>
           <motion.div
