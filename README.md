@@ -1,11 +1,19 @@
-My Personal Portfolio
+# 🌐 My Personal Portfolio  
 
-#Fronted Tech
+Welcome to my personal portfolio website — a showcase of my work, skills, and projects in **web development and software engineering**.
 
-- React
-- Javascript
-- TailwindCSS
+---
 
- #Backend Tech
+## 🎨 Frontend Technologies  
+- ⚛️ React  
+- 🟨 JavaScript  
+- 🎨 Tailwind CSS  
 
- -FastAPI
+---
+
+## ⚙️ Backend Technologies  
+- 🚀 FastAPI  
+
+---
+
+✨ Built with a focus on **performance, clean UI, and real-world applications**.
