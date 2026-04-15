@@ -12,6 +12,7 @@ import {
   SiHtml5,
   SiVite,
   SiNextdotjs,
+  SiFastapi
 } from "react-icons/si";
 
 const Skills = () => {
@@ -124,6 +125,16 @@ const Skills = () => {
       hoverColor: "hover:shadow-orange-500/50",
       level: 85,
       description: "Version control & collaboration",
+    },
+    {
+      name: "FastAPI",
+      icon: SiFastapi,
+      category: "backend",
+      color: "from-green-400 to-emerald-600",
+      iconColor: "text-green-400",
+      hoverColor: "hover:shadow-green-500/50",
+      level: 82,
+      description: "High-performance API development",
     },
     {
       name: "Vite",
