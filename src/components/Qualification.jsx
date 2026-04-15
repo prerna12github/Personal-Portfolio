@@ -78,7 +78,7 @@ const Qualification = () => {
           >
             
           </motion.div>
-          <h2 className="text-6xl md:text-6xl lg:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-400 to-pink-400 mb-4 tracking-tight">
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-400 to-pink-400 mb-4 tracking-tight">
             My Qualifications
           </h2>
          

@@ -204,7 +204,7 @@ const Skills = () => {
         className="text-center mb-12 relative z-10"
       >
        
-        <h2 className="text-5xl md:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 mb-4 tracking-tight">
+        <h2 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 mb-4 tracking-tight">
           My Skills
         </h2>
         <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">

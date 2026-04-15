@@ -45,7 +45,7 @@ const About = () => {
           className="inline-flex items-center gap-2 px-6 py-3 mb-6"
         >
         </motion.div>
-        <h1 className="text-6xl md:text-6xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400">
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400">
           About Me
         </h1>
         <div className="mt-4 h-1 w-32 mx-auto bg-gradient-to-r from-violet-500 to-indigo-500 rounded-full" />
@@ -155,18 +155,18 @@ const About = () => {
                 </div>
               </motion.div>
 
-              {/* Quantum Computing Card */}
+              {/* AI/ML Interest Card */}
               <motion.div
                 whileHover={{ scale: 1.05, y: -5 }}
                 className="p-5 rounded-2xl bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-500/20 backdrop-blur-sm group hover:border-cyan-500/40 transition-all duration-300"
               >
                 <div className="flex items-start gap-3">
                   <div className="p-2 rounded-lg bg-cyan-500/20 group-hover:bg-cyan-500/30 transition-colors">
-                    <Cpu className="w-6 h-6 text-cyan-400" />
+                    <Brain className="w-6 h-6 text-cyan-400" />
                   </div>
                   <div className="text-left">
-                    <h3 className="text-lg font-semibold text-white mb-1">Quantum Computing</h3>
-                    <p className="text-sm text-gray-400">Exploring quantum frontiers</p>
+                    <h3 className="text-lg font-semibold text-white mb-1">AI/ML</h3>
+                    <p className="text-sm text-gray-400">Exploring artificial intelligence & machine learning</p>
                   </div>
                 </div>
               </motion.div>
