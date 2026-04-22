@@ -2,7 +2,6 @@ import { useState, useMemo } from "react"
 import { motion } from "framer-motion"
 import { CardImage } from "./CardImage"
 
-// ─── Edit your projects here ────────────────────────────────────────────────
 const projectsData = [
   {
     id: 1,
@@ -32,7 +31,6 @@ const projectsData = [
     featured: false,
   },
 ]
-// ─────────────────────────────────────────────────────────────────────────────
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState("All")
@@ -78,8 +76,6 @@ const Projects = () => {
             className="w-24 h-1 bg-gradient-to-r from-violet-500 to-purple-500 mx-auto mt-6 rounded-full origin-center"
           />
         </motion.div>
-
-       
 
         {/* Projects Grid */}
         <motion.div

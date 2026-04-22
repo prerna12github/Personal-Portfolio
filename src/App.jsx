@@ -23,7 +23,7 @@ const App = () => {
       <StarsBackground className="min-h-screen" speed={50} starColor="#a78bfa">
         <Navbar />
 
-        {/* 🏠 Home Section */}
+        {/* Home Section */}
         <section id="home" className="flex items-center h-screen px-4 md:px-20 lg:px-40 gap-x-10 lg:gap-x-20">
           {/* Left Side */}
           <div className="text-left">
@@ -113,22 +113,22 @@ const App = () => {
           </div>
         </section>
 
-        {/* 📘 About Section */}
+        {/*  About Section */}
         <About />
 
-        {/* 🎓 Qualification Section */}
+        {/*  Qualification Section */}
         <Qualification />
 
-        {/* 💡 Skills Section */}
+        {/*  Skills Section */}
         <Skills />
 
-        {/* 📚 Projects Section */}
+        {/*  Projects Section */}
         <Projects />
 
-        {/* ✉️ Contact Section */}
+        {/*  Contact Section */}
         <Contact />
 
-        {/* 🔻 Footer — at the bottom of everything */}
+        {/*  Footer*/}
         <Footer />
       </StarsBackground>
     </div>
