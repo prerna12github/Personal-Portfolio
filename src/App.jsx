@@ -9,7 +9,6 @@ import Typewriter from "typewriter-effect";
 import Contact from "./components/Contact";
 import Projects from "./components/Projects";
 import { StarsBackground } from "./components/animate-ui/components/backgrounds/stars";
-import { SmoothCursor } from "@/components/ui/smooth-cursor"
 
 const App = () => {
   const scrollToProjects = () => {
@@ -22,7 +21,6 @@ const App = () => {
   return (
     <div className="scroll-smooth bg-slate-950">
       <StarsBackground className="min-h-screen" speed={50} starColor="#a78bfa">
-        <SmoothCursor />
         <Navbar />
 
         {/* 🏠 Home Section */}
