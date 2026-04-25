@@ -5,7 +5,7 @@ Welcome to my personal portfolio website — a showcase of my work, skills, and 
 ---
 
 ## 🚀 Live Demo  
-🔗[ https://personal-portfolio-one-phi-85.vercel.app](https://myportfolio.prerna12.qzz.io)
+🔗[https://myportfolio.prerna12.qzz.io]
 
 ---
 
