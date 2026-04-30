@@ -98,7 +98,7 @@ const Footer = () => {
               Get in Touch
             </h3>
             <a 
-              href="mailto:prerna@example.com" 
+              href="mailto:prernakumarisharma2003@gmail.com" 
               className="text-sm text-gray-400 hover:text-purple-400 transition-colors"
             >
               prernakumarisharma2003@gmail.com
