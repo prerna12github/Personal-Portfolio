@@ -1,306 +1,213 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
 import {
-  SiReact,
+  SiPython,
   SiJavascript,
   SiTypescript,
-  SiPython,
+  SiReact,
+  SiNextdotjs,
   SiTailwindcss,
+  SiFastapi,
   SiNodedotjs,
+  SiPostgresql,
+  SiRedis,
+  SiMysql,
+  SiSqlite,
   SiSupabase,
   SiGit,
-  SiHtml5,
-  SiVite,
-  SiNextdotjs,
-  SiFastapi
+  SiGithub,
+  SiTensorflow,
+  SiOpencv,
+  SiPostman
 } from "react-icons/si";
+import { FaJava, FaCss3Alt, FaHtml5 } from "react-icons/fa";
+import { FiGlobe, FiStar } from "react-icons/fi";
+import { skillsData } from "../data/portfolioData";
+import { Sparkle, WashiTape, HandStar } from "./Doodles";
 
-const Skills = () => {
-  const [activeCategory, setActiveCategory] = useState("all");
+const iconComponentMap = {
+  SiPython,
+  SiJavascript,
+  SiTypescript,
+  SiOpenjdk: FaJava,
+  FaJava,
+  SiReact,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiHtml5: FaHtml5,
+  FaHtml5,
+  SiCss3: FaCss3Alt,
+  FaCss3Alt,
+  SiFastapi,
+  SiNodedotjs,
+  SiPostgresql,
+  SiRedis,
+  SiMysql,
+  SiSqlite,
+  SiSupabase,
+  SiGit,
+  SiGithub,
+  SiTensorflow,
+  SiOpencv,
+  SiPostman,
+  Globe: FiGlobe
+};
 
-  const skillCategories = [
-    { id: "all", label: "All Skills"},
-    { id: "frontend", label: "Frontend" },
-    { id: "backend", label: "Backend" },
-    { id: "tools", label: "Tools"},
-  ];
+const categoryBadgeStyles = {
+  yellow: "bg-[#FEFCE8] text-[#854D0E] border-[#FEF08A]",
+  pink: "bg-[#FDF2F8] text-[#9D174D] border-[#FBCFE8]",
+  blue: "bg-[#F0F9FF] text-[#0369A1] border-[#BAE6FD]",
+  peach: "bg-[#FFF7ED] text-[#9A3412] border-[#FED7AA]",
+  green: "bg-[#F0FDF4] text-[#166534] border-[#BBF7D0]"
+};
 
-  const skillsData = [
-    {
-      name: "React",
-      icon: SiReact,
-      category: "frontend",
-      color: "from-cyan-400 to-blue-500",
-      iconColor: "text-cyan-400",
-      hoverColor: "hover:shadow-cyan-500/50",
-      level: 90,
-      description: "Component architecture & state management",
-    },
-    {
-      name: "Next.js",
-      icon: SiNextdotjs,
-      category: "frontend",
-      color: "from-white to-gray-400",
-      iconColor: "text-white",
-      hoverColor: "hover:shadow-white/50",
-      level: 85,
-      description: "SSR, SSG & API routes",
-    },
-    {
-      name: "JavaScript",
-      icon: SiJavascript,
-      category: "frontend",
-      color: "from-yellow-400 to-yellow-600",
-      iconColor: "text-yellow-400",
-      hoverColor: "hover:shadow-yellow-500/50",
-      level: 92,
-      description: "ES6+ & asynchronous programming",
-    },
-    {
-      name: "TypeScript",
-      icon: SiTypescript,
-      category: "frontend",
-      color: "from-blue-500 to-blue-700",
-      iconColor: "text-blue-500",
-      hoverColor: "hover:shadow-blue-500/50",
-      level: 82,
-      description: "Type-safe development & interfaces",
-    },
-    {
-      name: "HTML5",
-      icon: SiHtml5,
-      category: "frontend",
-      color: "from-orange-500 to-red-500",
-      iconColor: "text-orange-500",
-      hoverColor: "hover:shadow-orange-500/50",
-      level: 95,
-      description: "Semantic markup & accessibility",
-    },
-    {
-      name: "Tailwind",
-      icon: SiTailwindcss,
-      category: "frontend",
-      color: "from-cyan-400 to-teal-500",
-      iconColor: "text-cyan-400",
-      hoverColor: "hover:shadow-cyan-500/50",
-      level: 93,
-      description: "Utility-first responsive design",
-    },
-    {
-      name: "Node.js",
-      icon: SiNodedotjs,
-      category: "backend",
-      color: "from-green-500 to-lime-600",
-      iconColor: "text-green-500",
-      hoverColor: "hover:shadow-green-500/50",
-      level: 78,
-      description: "RESTful APIs & server architecture",
-    },
-    {
-      name: "Python",
-      icon: SiPython,
-      category: "backend",
-      color: "from-blue-400 to-yellow-500",
-      iconColor: "text-blue-400",
-      hoverColor: "hover:shadow-blue-500/50",
-      level: 85,
-      description: "Scripting & data processing",
-    },
-    {
-      name: "Supabase",
-      icon: SiSupabase,
-      category: "backend",
-      color: "from-emerald-400 to-teal-500",
-      iconColor: "text-emerald-400",
-      hoverColor: "hover:shadow-emerald-500/50",
-      level: 80,
-      description: "Database & authentication",
-    },
-    {
-      name: "Git",
-      icon: SiGit,
-      category: "tools",
-      color: "from-orange-500 to-red-600",
-      iconColor: "text-orange-500",
-      hoverColor: "hover:shadow-orange-500/50",
-      level: 85,
-      description: "Version control & collaboration",
-    },
-    {
-      name: "FastAPI",
-      icon: SiFastapi,
-      category: "backend",
-      color: "from-green-400 to-emerald-600",
-      iconColor: "text-green-400",
-      hoverColor: "hover:shadow-green-500/50",
-      level: 82,
-      description: "High-performance API development",
-    },
-    {
-      name: "Vite",
-      icon: SiVite,
-      category: "tools",
-      color: "from-purple-400 to-violet-600",
-      iconColor: "text-purple-400",
-      hoverColor: "hover:shadow-purple-500/50",
-      level: 88,
-      description: "Fast build tooling & optimization",
-    },
-  ];
+export const Skills = () => {
+  const [selectedFilter, setSelectedFilter] = useState("all");
 
-  const filteredSkills =
-    activeCategory === "all"
-      ? skillsData
-      : skillsData.filter((skill) => skill.category === activeCategory);
+  const categories = ["all", ...skillsData.resumeSkills.map((c) => c.category)];
+
+  const filteredCategories =
+    selectedFilter === "all"
+      ? skillsData.resumeSkills
+      : skillsData.resumeSkills.filter((c) => c.category === selectedFilter);
 
   return (
-    <section
-      id="skills"
-      className="min-h-screen flex flex-col items-center justify-center p-6 md:p-10 lg:p-20 relative overflow-hidden"
-    >
-      {/* Animated Background Gradients */}
-      <div className="absolute inset-0 bg-gradient-to-br from-violet-500/20 via-transparent to-indigo-500/20 pointer-events-none" />
+    <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto relative">
       
-      {/* Floating Orbs */}
-      {[
-        { top: "10%", left: "5%", color: "bg-purple-500/20", size: "w-96 h-96", duration: 12 },
-        { top: "60%", right: "10%", color: "bg-blue-500/20", size: "w-80 h-80", duration: 15 },
-        { bottom: "15%", left: "15%", color: "bg-cyan-500/20", size: "w-72 h-72", duration: 10 },
-      ].map((orb, i) => (
-        <motion.div
-          key={i}
-          className={`absolute ${orb.size} ${orb.color}/10 rounded-full blur-3xl pointer-events-none`}
-          style={{ top: orb.top, left: orb.left, right: orb.right, bottom: orb.bottom }}
-          animate={{
-            scale: [1, 1.3, 1],
-            opacity: [0.2, 0.4, 0.2],
-            x: [0, 40, -20, 0],
-            y: [0, -30, 20, 0],
-          }}
-          transition={{
-            duration: orb.duration,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-      ))}
-
-      {/* Grid Pattern Overlay */}
-      <div 
-        className="absolute inset-0 opacity-[0.03] pointer-events-none"
-        style={{
-          backgroundImage: `linear-gradient(rgba(139, 92, 246, 0.3) 1px, transparent 1px),
-                           linear-gradient(90deg, rgba(139, 92, 246, 0.3) 1px, transparent 1px)`,
-          backgroundSize: '50px 50px'
-        }}
-      />
-
       {/* Section Header */}
-      <motion.div
-        initial={{ opacity: 0, y: -30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
-        className="text-center mb-16 relative z-10"
-      >
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 mb-4 tracking-tight">
-          My Skills
+      <div className="flex flex-col items-center text-center mb-14">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#ECFDF5] text-[#065F46] text-xs font-mono mb-3 border border-[#A7F3D0]">
+          <Sparkle className="w-3.5 h-3.5 text-emerald-500" />
+          <span>toolkit & competencies</span>
+        </div>
+
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#2B2621] tracking-tight">
+          Skills & <span className="text-[#D95338]">Technologies</span>
         </h2>
-        <motion.div
-          initial={{ scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
-          className="w-32 h-1 bg-gradient-to-r from-violet-500 to-purple-500 mx-auto rounded-full origin-center"
-        />
-      </motion.div>
+        
+        <p className="mt-2 text-stone-600 font-hand text-xl max-w-xl">
+          Core proficiencies verified across coursework, code repositories & active exploration
+        </p>
 
-      <div className="container mx-auto max-w-7xl relative z-10">
-        {/* Category Filter Tabs - Modern Glass Design */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3, duration: 0.6 }}
-          className="flex flex-wrap justify-center gap-3 mb-14"
-        >
-          <div className="bg-slate-900/50 backdrop-blur-xl p-2 rounded-2xl border border-white/10 inline-flex gap-2">
-            {skillCategories.map((category) => (
-              <motion.button
-                key={category.id}
-                onClick={() => setActiveCategory(category.id)}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className={`px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 flex items-center gap-2 ${
-                  activeCategory === category.id
-                    ? "bg-gradient-to-r from-violet-600 to-purple-600 text-white shadow-lg shadow-purple-500/40"
-                    : "text-gray-400 hover:text-white hover:bg-white/5"
-                }`}
-              >
-                <span>{category.label}</span>
-              </motion.button>
-            ))}
-          </div>
-        </motion.div>
+        {/* Filter Tabs */}
+        <div className="flex flex-wrap items-center justify-center gap-2 mt-8">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setSelectedFilter(cat)}
+              className={`px-3.5 py-1.5 rounded-xl text-xs font-medium transition-all cursor-pointer ${
+                selectedFilter === cat
+                  ? "bg-[#2B2621] text-white shadow-sm font-semibold"
+                  : "bg-white text-[#6E6358] border border-[#E5DACD] hover:bg-[#F7F2E9] hover:text-[#2B2621]"
+              }`}
+            >
+              {cat === "all" ? "All Skills" : cat}
+            </button>
+          ))}
+        </div>
+      </div>
 
-        {/* Skills Grid - Modern Card Design */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5"
-        >
-        {filteredSkills.map((skill, index) => {
-          const IconComponent = skill.icon;
+      {/* Main Grid: Resume Skills Categories */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
+        {filteredCategories.map((group) => {
+          const badgeStyle = categoryBadgeStyles[group.color] || categoryBadgeStyles.yellow;
 
           return (
-            <motion.div
-              key={skill.name}
-              initial={{ opacity: 0, y: 30, scale: 0.9 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{
-                delay: index * 0.06,
-                duration: 0.5,
-                ease: "easeOut",
-              }}
-              className="group relative"
+            <div
+              key={group.category}
+              className="bg-white rounded-3xl p-6 border-2 border-[#E5DACD] shadow-xs hover:shadow-md transition-shadow relative text-left"
             >
-                {/* Outer Glow Effect */}
-                <motion.div
-                  className={`absolute -inset-0.5 rounded-2xl bg-gradient-to-r ${skill.color} opacity-0 group-hover:opacity-70 blur transition-opacity duration-500`}
-                />
+              <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-[#F0EBE1]">
+                <h3 className="font-extrabold text-sm sm:text-base text-[#2B2621]">
+                  {group.category}
+                </h3>
+                <span className={`px-2.5 py-0.5 rounded-full text-[11px] font-mono font-semibold border ${badgeStyle}`}>
+                  {group.items.length} items
+                </span>
+              </div>
 
-                {/* Main Card */}
-                <div className="relative bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-sm rounded-2xl p-6 h-full border border-white/10 group-hover:border-transparent transition-all duration-500 overflow-hidden flex flex-col items-center justify-center">
-                  {/* Animated Background Gradient */}
-                  <motion.div
-                    className={`absolute inset-0 bg-gradient-to-br ${skill.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
-                  />
-
-                  {/* Icon Container */}
-                  <motion.div
-                    className="relative w-20 h-20 rounded-xl bg-slate-900/80 border border-white/10 flex items-center justify-center"
-                    whileHover={{ scale: 1.15 }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                  >
-                    <motion.div
-                      className={`absolute inset-0 bg-gradient-to-br ${skill.color} opacity-0 group-hover:opacity-20 rounded-xl`}
-                    />
-                    <IconComponent 
-                      className={`text-6xl ${skill.iconColor} relative z-10 filter drop-shadow-lg`} 
-                    />
-                  </motion.div>
-
-                  {/* Skill Name */}
-                  <h3 className="text-white font-semibold text-center text-sm mt-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-300 transition-all duration-300">
-                    {skill.name}
-                  </h3>
-                </div>
-              </motion.div>
-            );
-          })}
-        </motion.div>
+              {/* Skills Grid */}
+              <div className="grid grid-cols-2 gap-2.5">
+                {group.items.map((skill) => {
+                  const Icon = iconComponentMap[skill.icon] || FiStar;
+                  return (
+                    <div
+                      key={skill.name}
+                      className="p-2.5 rounded-xl bg-[#FAF7F2] border border-[#EADBCE] hover:border-[#D95338]/50 hover:bg-white transition-all group flex items-center gap-2.5"
+                    >
+                      <div className="p-1.5 rounded-lg bg-white border border-[#E0D5C7] text-[#4A4238] group-hover:text-[#D95338] transition-colors flex-shrink-0">
+                        <Icon className="w-4 h-4" />
+                      </div>
+                      <div className="min-w-0">
+                        <span className="block text-xs font-bold text-[#2B2621] truncate">
+                          {skill.name}
+                        </span>
+                        <span className="block text-[10px] text-[#7A7065] truncate font-mono">
+                          {skill.level}
+                        </span>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          );
+        })}
       </div>
+
+      {/* ========================================================================= */}
+      {/* SEPARATE SECTION: TECHNOLOGIES I'M CURRENTLY EXPLORING */}
+      {/* ========================================================================= */}
+      <div className="mt-14 relative text-left">
+        <WashiTape color="yellow" rotation="-1deg" className="w-36 h-6 -top-3 left-12 z-20" />
+
+        <div className="bg-[#FFFDF9] rounded-3xl p-6 sm:p-8 border-2 border-[#FDE68A] shadow-[0_8px_30px_-6px_rgba(234,179,8,0.08)] relative">
+          
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-[#FEF08A]">
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse" />
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#92400E]">
+                  Active Research & Experimentation
+                </span>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-extrabold text-[#2B2621] tracking-tight mt-1">
+                Technologies Currently Exploring
+              </h3>
+            </div>
+
+            <span className="text-xs font-mono text-[#854D0E] bg-[#FEF9C3] px-3 py-1 rounded-full border border-[#FDE047] self-start sm:self-auto">
+              Distinct from Core Resume Skills ✨
+            </span>
+          </div>
+
+          <p className="text-xs sm:text-sm text-[#6B6155] mt-3 mb-6 max-w-2xl leading-relaxed">
+            I actively read current AI literature, explore agentic orchestration libraries, and build prototypes around semantic retrieval, citation provenance, and autonomous workflows.
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5">
+            {skillsData.activelyExploring.map((tech) => (
+              <div
+                key={tech.name}
+                className="bg-white rounded-2xl p-4 border border-[#FDE68A] shadow-2xs hover:shadow-sm hover:-translate-y-0.5 transition-all text-left flex flex-col justify-between"
+              >
+                <div>
+                  <span className="inline-block px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-[#FEF9C3] text-[#854D0E] mb-2 border border-[#FDE047]">
+                    {tech.badge}
+                  </span>
+                  <h4 className="font-extrabold text-sm text-[#2B2621]">
+                    {tech.name}
+                  </h4>
+                </div>
+                <p className="text-[11px] text-[#7A7065] mt-2 leading-snug">
+                  {tech.focus}
+                </p>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </div>
+
     </section>
   );
 };

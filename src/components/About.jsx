@@ -1,208 +1,159 @@
 import React from "react";
-import { motion } from "framer-motion";
-import { User, Code2, Brain, Heart, Cpu } from "lucide-react";
+import { FiCpu, FiDatabase, FiServer, FiLayers, FiCode } from "react-icons/fi";
+import { personalInfo } from "../data/portfolioData";
+import { Sparkle, WashiTape, HandStar, FlowerDoodle } from "./Doodles";
 
-const About = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1,
-      },
-    },
-  };
+const highlightsList = [
+  {
+    title: "AI & Agentic Systems",
+    icon: FiCpu,
+    color: "pink",
+    badgeBg: "bg-pink-100/90 text-pink-800 border-pink-200",
+    desc: "Multi-agent orchestration, LangGraph state machines, tool calling & human verification workflows."
+  },
+  {
+    title: "LLMs and RAG",
+    icon: FiLayers,
+    color: "yellow",
+    badgeBg: "bg-amber-100/90 text-amber-800 border-amber-200",
+    desc: "Retrieval-Augmented Generation, semantic embeddings, citation provenance & anti-hallucination guardrails."
+  },
+  {
+    title: "Machine Learning",
+    icon: FiCode,
+    color: "green",
+    badgeBg: "bg-emerald-100/90 text-emerald-800 border-emerald-200",
+    desc: "Computer vision, MobileNetV2 architecture, OpenCV frame processing & post-training quantization."
+  },
+  {
+    title: "Backend Engineering",
+    icon: FiServer,
+    color: "blue",
+    badgeBg: "bg-sky-100/90 text-sky-800 border-sky-200",
+    desc: "High-concurrency FastAPI services, PostgreSQL schema design, Redis/Valkey caching & async queues."
+  },
+  {
+    title: "Full-Stack Development",
+    icon: FiDatabase,
+    color: "peach",
+    badgeBg: "bg-orange-100/90 text-orange-800 border-orange-200",
+    desc: "Responsive user interfaces with React, modern Tailwind styling, state management & clean RESTful integration."
+  }
+];
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, ease: "easeOut" },
-    },
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, scale: 0.9 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 0.6, ease: "easeOut" },
-    },
-  };
-
+export const About = () => {
   return (
-    <section
-      id="about"
-      className="min-h-screen flex flex-col items-center justify-center p-6 md:p-16 relative overflow-hidden scroll-smooth"
-    >
-      {/* Animated Background Gradients */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 left-10 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-violet-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-500/10 rounded-full blur-3xl" />
+    <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto relative">
+      
+      {/* Section Header */}
+      <div className="flex flex-col items-center text-center mb-16">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F3EDE2] text-[#706456] text-xs font-mono mb-3 border border-[#E0D5C7]">
+          <Sparkle className="w-3.5 h-3.5 text-amber-500" />
+          <span>get to know me</span>
+        </div>
+
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#2B2621] tracking-tight">
+          About <span className="text-[#D95338]">Me</span>
+        </h2>
+        
+        <p className="mt-2 text-stone-600 font-hand text-xl max-w-lg">
+          MCA student · AI Explorer · Builder at heart 🌿
+        </p>
       </div>
 
-      {/* Section Title */}
-      <motion.div
-        initial={{ opacity: 0, y: -30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="text-center mb-16 relative z-10"
-      >
-        <motion.div
-          whileHover={{ scale: 1.05 }}
-          className="inline-flex items-center gap-2 px-6 py-3 mb-6"
-        >
-        </motion.div>
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400">
-          About Me
-        </h1>
-        <div className="mt-4 h-1 w-32 mx-auto bg-gradient-to-r from-violet-500 to-indigo-500 rounded-full" />
-      </motion.div>
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        {/* Left Side: Editorial Story Card with Scrapbook Paper Look */}
+        <div className="lg:col-span-7 relative">
+          <WashiTape color="pink" rotation="-1.2deg" className="w-28 h-6 -top-3 left-10" />
+          
+          <div className="bg-white rounded-3xl p-6 sm:p-8 border-2 border-[#E5DACD] shadow-[0_4px_24px_-4px_rgba(70,50,30,0.08)] relative">
+            <h3 className="text-xl sm:text-2xl font-bold text-[#2B2621] mb-5 flex items-center gap-2">
+              <span>Curiosity-driven Engineering</span>
+              <FlowerDoodle className="w-5 h-5 text-rose-400" />
+            </h3>
 
-      {/* Main Content */}
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        className="w-full max-w-6xl relative z-10"
-      >
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Profile Image - Left Side */}
-          <motion.div
-            variants={itemVariants}
-            className="relative group"
-          >
-            <div className="relative w-72 h-96 md:w-96 md:h-[500px] mx-auto">
-              {/* Animated border ring */}
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-violet-500 via-purple-500 to-indigo-500 p-1 animate-gradient-xy">
-                <div className="w-full h-full rounded-3xl bg-gray-900/90 backdrop-blur-sm" />
-              </div>
+            {/* Exact content required */}
+            <div className="space-y-4 text-[#4A4238] text-sm sm:text-base leading-relaxed">
+              <p>
+                I'm an MCA student at <strong className="text-[#2B2621] font-semibold">Kalyani Government Engineering College</strong> with a strong interest in Artificial Intelligence, Machine Learning, and full-stack development.
+              </p>
               
-              {/* Image container */}
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
-                className="absolute inset-2 rounded-2xl overflow-hidden shadow-2xl"
-              >
-                <img
-                  src="/image.png"
-                  alt="Prerna Kumari Sharma"
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-                />
-                
-                {/* Overlay gradient on hover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-violet-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              </motion.div>
+              <p>
+                My current learning journey revolves around building intelligent AI systems, experimenting with LLMs, exploring Agentic AI and RAG architectures, and understanding how multiple AI agents can collaborate to solve complex problems.
+              </p>
 
-              {/* Floating decoration elements */}
-              <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -top-4 -right-4 w-12 h-12 bg-gradient-to-br from-violet-500 to-purple-500 rounded-xl opacity-60 blur-sm"
-              />
-              <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-2xl opacity-40 blur-sm"
-              />
-            </div>
-          </motion.div>
+              <p>
+                I also enjoy backend engineering, database optimization, and building scalable web applications.
+              </p>
 
-          {/* About Text - Right Side */}
-          <motion.div
-            variants={itemVariants}
-            className="space-y-6 text-center lg:text-left"
-          >
-            {/* Introduction */}
-            <div className="space-y-4">
-              <motion.p
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
-                className="text-2xl md:text-3xl font-semibold text-white"
-              >
-                Hi, I'm{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-purple-400">
-                  Prerna Kumari Sharma
-                </span>
-              </motion.p>
-              
-              <motion.p
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4 }}
-                className="text-lg md:text-xl leading-relaxed text-gray-300"
-              >
-                A passionate developer who loves building creative and efficient web
-                applications. I'm dedicated to crafting elegant solutions to complex
-                problems and continuously expanding my skill set.
-              </motion.p>
-            </div>
-
-            {/* Interest Cards */}
-            <motion.div
-              variants={containerVariants}
-              className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8"
-            >
-              {/* Web Development Card */}
-              <motion.div
-                variants={cardVariants}
-                whileHover={{ scale: 1.05, y: -5 }}
-                className="p-5 rounded-2xl bg-gradient-to-br from-violet-500/10 to-purple-500/10 border border-violet-500/20 backdrop-blur-sm group hover:border-violet-500/40 transition-all duration-300"
-              >
-                <div className="flex items-start gap-3">
-                  <div className="p-2 rounded-lg bg-violet-500/20 group-hover:bg-violet-500/30 transition-colors">
-                    <Code2 className="w-6 h-6 text-violet-400" />
-                  </div>
-                  <div className="text-left">
-                    <h3 className="text-lg font-semibold text-white mb-1">Web Development</h3>
-                    <p className="text-sm text-gray-400">Building modern web apps</p>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* AI/ML Interest Card */}
-              <motion.div
-                variants={cardVariants}
-                whileHover={{ scale: 1.05, y: -5 }}
-                className="p-5 rounded-2xl bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-500/20 backdrop-blur-sm group hover:border-cyan-500/40 transition-all duration-300"
-              >
-                <div className="flex items-start gap-3">
-                  <div className="p-2 rounded-lg bg-cyan-500/20 group-hover:bg-cyan-500/30 transition-colors">
-                    <Brain className="w-6 h-6 text-cyan-400" />
-                  </div>
-                  <div className="text-left">
-                    <h3 className="text-lg font-semibold text-white mb-1">AI/ML</h3>
-                    <p className="text-sm text-gray-400">Exploring artificial intelligence & machine learning</p>
-                  </div>
-                </div>
-              </motion.div>
-            </motion.div>
-
-            {/* Passion Statement */}
-            <motion.div
-              variants={itemVariants}
-              className="mt-8 p-6 rounded-2xl bg-gradient-to-r from-violet-500/5 to-indigo-500/5 border border-purple-500/20"
-            >
-              <div className="flex items-start gap-3">
-                <Heart className="w-6 h-6 text-purple-400 flex-shrink-0 mt-1" />
-                <p className="text-base text-gray-300 leading-relaxed">
-                  I enjoy learning new technologies and turning ideas into reality
-                  through code. Every project is an opportunity to grow and create
-                  something meaningful.
+              <div className="p-4 rounded-2xl bg-[#FFFBEB] border border-[#FDE68A] text-[#92400E] font-medium text-sm flex items-start gap-3 mt-4">
+                <span className="text-xl mt-0.5">💡</span>
+                <p>
+                  "I believe the best way to learn technology is by building real projects."
                 </p>
               </div>
-            </motion.div>
-          </motion.div>
+            </div>
+
+            {/* Scrapbook Campus Snapshot Card */}
+            <div className="mt-6 pt-5 border-t border-[#EADBCE] flex flex-col sm:flex-row items-center gap-4 bg-[#FAF7F2] p-4 rounded-2xl">
+              <div className="w-full sm:w-28 h-20 rounded-xl overflow-hidden border border-[#DED5C7] flex-shrink-0 relative">
+                <img
+                  src={personalInfo.collegeImage}
+                  alt="Kalyani Government Engineering College"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="text-left">
+                <span className="text-[11px] font-mono uppercase tracking-wider text-[#9C8F80] font-semibold">
+                  Academic Base
+                </span>
+                <h4 className="text-sm font-bold text-[#2B2621]">
+                  Kalyani Government Engineering College
+                </h4>
+                <p className="text-xs text-[#6B6053]">
+                  Pursuing MCA (2025 – Present) · Nadia, West Bengal
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-      </motion.div>
+
+        {/* Right Side: Visual Highlights Cards */}
+        <div className="lg:col-span-5 flex flex-col gap-3.5 relative">
+          <div className="mb-2">
+            <span className="text-xs font-mono uppercase tracking-wider text-[#8A7D6F] font-semibold flex items-center gap-1.5">
+              <HandStar className="w-3.5 h-3.5 text-amber-500" />
+              Core Competency Highlights
+            </span>
+          </div>
+
+          {highlightsList.map((item) => {
+            const Icon = item.icon;
+            return (
+              <div
+                key={item.title}
+                className="bg-white rounded-2xl p-4 border border-[#E5DACD] shadow-xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 group text-left"
+              >
+                <div className="flex items-start gap-3.5">
+                  <div className={`p-2.5 rounded-xl border ${item.badgeBg} group-hover:scale-105 transition-transform flex-shrink-0`}>
+                    <Icon className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold text-[#2B2621] group-hover:text-[#D95338] transition-colors">
+                      {item.title}
+                    </h4>
+                    <p className="text-xs text-[#6B6155] mt-0.5 leading-normal">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+      </div>
     </section>
   );
 };
