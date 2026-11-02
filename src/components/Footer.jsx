@@ -9,7 +9,7 @@ export const Footer = () => {
   return (
     <footer className="wrap py-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-mono text-[#5c5c5c]">
       <div>
-        <span>Vibe coded. Developer approved. Made with &lt;3 · {personalInfo.name} · 2026</span>
+        <span> Made with &lt;3 · {personalInfo.name} · 2026</span>
       </div>
 
       <div className="flex items-center gap-6">
