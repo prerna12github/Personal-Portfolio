@@ -2,142 +2,350 @@
 
 @layer base {
   :root {
-    --bg-cream: #FAF7F2;
-    --bg-card: #FFFFFF;
-    --bg-card-alt: #FDFCFA;
-    --border-warm: #EADBCE;
-    --border-strong: #C4B5A5;
-    --text-primary: #2B2621;
-    --text-muted: #6B6259;
-    --text-soft: #8C8276;
-    --accent-terracotta: #D95338;
-    --accent-peach: #FDBA74;
-    --accent-pink: #F472B6;
-    --accent-yellow: #FACC15;
-    --accent-sage: #86EFAC;
-    --accent-sky: #7DD3FC;
-    --accent-lavender: #C4B5FD;
+    color-scheme: light;
+    --cp-bg: #fff8f1;
+    --cp-dot: rgba(150, 130, 115, 0.24);
+    --cp-bg-elevated: #fffbf7;
+    --cp-surface: #ffffff;
+    --cp-surface-soft: #f5f2ed;
+    --cp-border: #dedede;
+    --cp-border-strong: #919191;
+    --cp-text: #242424;
+    --cp-text-muted: #5c5c5c;
+    --cp-text-soft: #6f6f6f;
+    --cp-accent: #b11f4b;
+    --cp-accent-hover: #9a1a41;
+    --cp-accent-soft: rgba(177, 31, 75, 0.08);
+    --cp-accent-fg: #ffffff;
+    --cp-pink: #f7b4c6;
+    --cp-pink-soft: rgba(247, 180, 198, 0.18);
+    --cp-coral: #ea6045;
+    --cp-coral-soft: rgba(234, 96, 69, 0.14);
+    --cp-orange: #f28b38;
+    --cp-blue: #70a4c2;
+    --cp-blue-soft: rgba(112, 164, 194, 0.16);
+    --cp-mustard: #f4c244;
+    --cp-mustard-soft: rgba(244, 194, 68, 0.16);
+    --cp-ivory: #fffdfa;
+    --cp-midnight: #191c21;
+    --cp-highlight: rgba(177, 31, 75, 0.12);
+    --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.08);
+    --cp-shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.06);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 110px;
   }
 
   body {
-    background-color: var(--bg-cream);
-    background-image: radial-gradient(circle, rgba(168, 148, 128, 0.22) 1.1px, transparent 1.1px);
-    background-size: 26px 26px;
+    margin: 0;
+    background-color: var(--cp-bg);
+    background-image: radial-gradient(circle, var(--cp-dot) 1px, var(--cp-bg) 1.2px);
+    background-size: 28px 28px;
     background-attachment: fixed;
-    color: var(--text-primary);
-    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    color: var(--cp-text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
     overflow-x: hidden;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Outfit', sans-serif;
+  /* Tanuja's signature italic serif emphasis */
+  em {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 400;
+    color: var(--cp-accent);
+    font-style: italic;
   }
 
-  code, pre, .font-mono {
-    font-family: 'JetBrains Mono', monospace;
+  h1, h2, h3, h4, p {
+    margin: 0;
+  }
+
+  h1 {
+    font-weight: 450;
+    font-size: clamp(42px, 6.5vw, 84px);
+    letter-spacing: -3px;
+    line-height: 1.08;
+  }
+
+  h2 {
+    font-weight: 450;
+    font-size: clamp(32px, 4vw, 52px);
+    letter-spacing: -1.8px;
+    line-height: 1.15;
+  }
+
+  h3 {
+    font-weight: 500;
+    font-size: clamp(20px, 2.5vw, 28px);
+    letter-spacing: -0.8px;
+    line-height: 1.25;
+  }
+
+  ::selection {
+    background: var(--cp-highlight);
+    color: var(--cp-text);
   }
 }
 
-/* Handwritten / Scrapbook Font */
-.font-hand {
-  font-family: 'Caveat', cursive;
+/* Tanuja's container width */
+.wrap {
+  width: min(1200px, calc(100% - 48px));
+  margin-inline: auto;
 }
 
-.font-display {
-  font-family: 'Outfit', sans-serif;
+@media (min-width: 768px) {
+  .wrap {
+    width: min(1200px, calc(100% - 96px));
+  }
 }
 
-/* Subtle Scrapbook Dotted Paper Effect */
-.dotted-pattern {
-  background-image: radial-gradient(circle, rgba(168, 148, 128, 0.22) 1.1px, transparent 1.1px);
-  background-size: 24px 24px;
+/* Monospace metadata typography */
+.eyebrow,
+.edition,
+.project-meta,
+.disciplines,
+.art-caption,
+.status-label {
+  font-family: Consolas, "Courier New", Courier, monospace;
 }
 
-/* Washi Tape / Sticker Effect */
-.washi-tape-yellow {
-  background: rgba(254, 240, 138, 0.85);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-  transform: rotate(-1.5deg);
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  font-weight: 400;
+  color: var(--cp-text-muted);
+  line-height: 1.7;
+  text-transform: uppercase;
 }
 
-.washi-tape-pink {
-  background: rgba(251, 207, 232, 0.85);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-  transform: rotate(2deg);
+/* Status indicator dot */
+.status-dot {
+  height: 7px;
+  width: 7px;
+  border-radius: 50%;
+  background: var(--cp-accent);
+  display: inline-block;
 }
 
-.washi-tape-green {
-  background: rgba(187, 247, 208, 0.85);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-  transform: rotate(-1deg);
+/* Tanuja's Discipline Strip */
+.discipline-strip {
+  border-block: 1px solid var(--cp-border);
+  background: var(--cp-bg);
 }
 
-.washi-tape-blue {
-  background: rgba(186, 230, 253, 0.85);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-  transform: rotate(1.5deg);
+.discipline-strip > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 18px;
+  gap: 16px;
+  font-family: Consolas, "Courier New", Courier, monospace;
+  font-size: 11px;
+  letter-spacing: 1.2px;
+  color: var(--cp-text-muted);
+  overflow-x: auto;
+  white-space: nowrap;
 }
 
-/* Custom Card Shadow - Soft Pastel Warm */
-.shadow-soft-card {
-  box-shadow: 0 4px 20px -2px rgba(180, 160, 140, 0.12), 0 2px 6px -1px rgba(0, 0, 0, 0.04);
+.discipline-strip b {
+  font-size: 18px;
+  color: var(--cp-accent);
+  font-weight: 400;
 }
 
-.shadow-soft-card-hover {
-  box-shadow: 0 12px 30px -4px rgba(180, 160, 140, 0.2), 0 4px 12px -2px rgba(0, 0, 0, 0.06);
+/* Buttons and Links */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 10px 22px;
+  border-radius: 999px;
+  background: var(--cp-accent);
+  border: 1px solid var(--cp-accent);
+  color: var(--cp-accent-fg);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 180ms, border-color 180ms, color 180ms;
+  text-decoration: none;
 }
 
-.shadow-sticker {
-  box-shadow: 2px 3px 0px rgba(70, 50, 30, 0.08);
+.button:hover {
+  background: var(--cp-accent-hover);
+  border-color: var(--cp-accent-hover);
+  color: var(--cp-accent-fg);
 }
 
-/* Float Animation */
-@keyframes cute-float {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-7px) rotate(1deg); }
+.text-link {
+  font-size: 13px;
+  display: inline-flex;
+  gap: 16px;
+  align-items: center;
+  border-bottom: 1px solid var(--cp-border-strong);
+  padding-bottom: 3px;
+  color: var(--cp-text);
+  text-decoration: none;
+  transition: color 180ms, border-color 180ms;
 }
 
-@keyframes cute-float-reverse {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(7px) rotate(-1deg); }
+.text-link:hover {
+  color: var(--cp-accent);
+  border-color: var(--cp-accent);
 }
 
-@keyframes soft-pulse {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.05); opacity: 0.9; }
+/* Project Cards */
+.project-card {
+  display: flex;
+  flex-direction: column;
 }
 
-.animate-cute-float {
-  animation: cute-float 5s ease-in-out infinite;
+.project-art {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  border: 1px solid var(--cp-border);
+  background: var(--cp-surface);
 }
 
-.animate-cute-float-slow {
-  animation: cute-float 8s ease-in-out infinite;
+.art {
+  height: 320px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.animate-cute-float-reverse {
-  animation: cute-float-reverse 6s ease-in-out infinite;
+@media (min-width: 768px) {
+  .art {
+    height: 360px;
+  }
 }
 
-.animate-soft-pulse {
-  animation: soft-pulse 3s ease-in-out infinite;
+.project-open {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--cp-surface);
+  color: var(--cp-text);
+  font-size: 16px;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 220ms ease, background 220ms ease, color 220ms ease;
+  z-index: 5;
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 9px;
+.project-card:hover .project-open {
+  transform: rotate(45deg);
+  background: var(--cp-accent);
+  color: var(--cp-accent-fg);
 }
 
-::-webkit-scrollbar-track {
-  background: #FAF7F2;
+.project-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-block: 20px 8px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--cp-text-muted);
 }
 
-::-webkit-scrollbar-thumb {
-  background: #D8CEBE;
-  border-radius: 9999px;
-  border: 2px solid #FAF7F2;
+.disciplines {
+  font-size: 10px;
+  color: var(--cp-text-soft);
+  margin-top: 14px;
+  letter-spacing: 0.5px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #B8AC9C;
+/* ========================================================================= */
+/* TANUJA'S CUSTOM FLOWER CURSOR */
+/* ========================================================================= */
+
+@media (hover: hover) and (pointer: fine) {
+  body {
+    cursor: url("/assets/home/flower-hand-cursor.png") 34 2, auto;
+  }
+  a[href], button, select, summary, label[for], input[type="button"], input[type="submit"] {
+    cursor: url("/assets/home/flower-hand-cursor.png") 34 2, pointer;
+  }
+  textarea, input[type="text"], input[type="email"] {
+    cursor: text;
+  }
+}
+
+.doodle-cursor, .cursor-burst {
+  display: none;
+}
+
+@keyframes flower-burst {
+  0% { opacity: 0; transform: translateY(0) scale(0.1); }
+  18% { opacity: 1; }
+  65% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-18px) scale(1.25); }
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  body.doodle-cursor-active,
+  body.doodle-cursor-active :is(a[href], button, select, summary, label[for], input[type="button"], input[type="submit"]) {
+    cursor: none !important;
+  }
+
+  .doodle-cursor:not([hidden]) {
+    display: block;
+  }
+
+  .doodle-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 64px;
+    height: 64px;
+    z-index: 10000;
+    pointer-events: none;
+    will-change: transform;
+  }
+
+  .doodle-cursor img {
+    display: block;
+    width: 64px;
+    height: 64px;
+    transform-origin: 34px 2px;
+    transform: rotate(var(--doodle-turn, 0deg)) scale(1);
+    transition: transform 180ms ease-out;
+  }
+
+  .doodle-cursor.is-hovering img {
+    transform: rotate(var(--doodle-turn, 0deg)) scale(1.15);
+  }
+
+  .doodle-cursor.is-pressed img {
+    transform: rotate(var(--doodle-turn, 0deg)) scale(0.9);
+    transition-duration: 90ms;
+  }
+
+  .cursor-burst {
+    display: block;
+    position: fixed;
+    width: 96px;
+    height: auto;
+    z-index: 9999;
+    pointer-events: none;
+    transform-origin: 50% 90%;
+    animation: flower-burst 650ms ease-out both;
+  }
 }

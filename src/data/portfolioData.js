@@ -1,10 +1,9 @@
 export const personalInfo = {
   name: "Prerna Kumari Sharma",
   preferredName: "Prerna",
+  headline: "Hey, I'm Prerna.",
   title: "AI & Full-Stack Developer",
-  subtitle: "Exploring Agentic AI, LLMs & RAG",
-  status: "Open to AI & Full-Stack Opportunities",
-  badge: "Currently exploring AI ✨",
+  supportingLine: "Exploring Agentic AI, LLMs, RAG, and intelligent applications.",
   location: "Kalyani, West Bengal, India",
   email: "prernakumarisharma2003@gmail.com",
   github: "https://github.com/prerna12github",
@@ -14,269 +13,151 @@ export const personalInfo = {
   avatarImage: "/prernapic.png",
   collegeImage: "/kgec.jpg",
   bscCollegeImage: "/clg.jpg",
-  
-  heroIntro: "Hey, I'm Prerna! A developer curious about how intelligent systems work and how technology can solve real-world problems.\n\nCurrently pursuing my MCA, I'm exploring the world of AI Agents, Agentic Workflows, RAG, Large Language Models (LLMs), Machine Learning, and full-stack development.\n\nI enjoy building practical projects, experimenting with AI technologies, optimizing deep learning models, and turning interesting ideas into working applications.\n\nI'm always learning, experimenting, and building something new.",
+
+  heroIntro: "I'm an MCA student who enjoys building practical software and exploring how AI systems work. Currently, I'm experimenting with agentic workflows, LLM-powered applications, RAG, and machine learning while building projects that solve real problems.",
 
   aboutParagraphs: [
     "I'm an MCA student at Kalyani Government Engineering College with a strong interest in Artificial Intelligence, Machine Learning, and full-stack development.",
     "My current learning journey revolves around building intelligent AI systems, experimenting with LLMs, exploring Agentic AI and RAG architectures, and understanding how multiple AI agents can collaborate to solve complex problems.",
     "I also enjoy backend engineering, database optimization, and building scalable web applications.",
     "I believe the best way to learn technology is by building real projects."
-  ],
-
-  highlights: [
-    { title: "AI & Agentic Systems", desc: "Multi-agent orchestration, LangGraph, tool calling & human-in-the-loop flows", color: "pink" },
-    { title: "LLMs & RAG", desc: "Vector embeddings, retrieval pipelines, semantic chunking & anti-hallucination", color: "yellow" },
-    { title: "Machine Learning", desc: "Computer vision, MobileNetV2, CNNs & post-training quantization", color: "green" },
-    { title: "Backend Engineering", desc: "FastAPI, PostgreSQL persistence, Redis/Valkey caching & async APIs", color: "blue" },
-    { title: "Full-Stack Development", desc: "React, Next.js, modern component architectures & delightful UX", color: "peach" }
   ]
 };
 
-export const featuredProjects = [
-  {
+export const featuredProjects = {
+  flagship: {
     id: "agentic-literature-review",
     title: "Agentic Literature Review Assistant",
-    tagline: "Flagship Agentic AI System",
-    isFlagship: true,
+    category: "Featured Engineering Project · Agentic AI",
     github: "https://github.com/prerna12github/agentic-literature-review",
-    liveDemo: null, // As requested: only when deployment is available
-    status: "Active Exploration & Development",
-    description: "A human-in-the-loop multi-agent system built with LangGraph that automates end-to-end literature reviews with human review checkpoints.",
-    keyFeatures: [
-      "Multi-agent workflow orchestration using LangGraph.",
-      "Human-in-the-loop review checkpoints.",
-      "Contradiction detection using local MiniLM embeddings for claim clustering.",
-      "Gemini-powered conflict analysis.",
-      "Strict citation provenance using chunk and page metadata.",
-      "Anti-hallucination source verification."
+    problem: "Academic literature reviews require researchers to synthesize dozens of complex research papers, identify hidden contradictions, and maintain meticulous citation accuracy—a labor-intensive process vulnerable to oversight and hallucination.",
+    solution: "A stateful multi-agent system orchestrating specialized agents via LangGraph. The pipeline decomposes research queries, ingests and chunks papers with page-level provenance, clusters claims using local embeddings, analyzes conflicts via Gemini, and pauses at critical checkpoints for human validation.",
+    architectureSteps: [
+      {
+        step: "01",
+        name: "Query Planner",
+        desc: "Deconstructs research topics into targeted search sub-queries and exploration branches."
+      },
+      {
+        step: "02",
+        name: "Paper Ingestion & Chunking",
+        desc: "Parses PDF documents and tags every text chunk deterministically with page and section metadata."
+      },
+      {
+        step: "03",
+        name: "MiniLM Claim Clustering",
+        desc: "Generates local embeddings using all-MiniLM-L6-v2 to cluster semantically related scientific claims with zero API cost."
+      },
+      {
+        step: "04",
+        name: "Gemini Conflict Analysis",
+        desc: "Evaluates clustered claims using Gemini to identify contradictions, nuances, and divergent findings across authors."
+      },
+      {
+        step: "05",
+        name: "Human-in-the-Loop Checkpoint",
+        desc: "Halts workflow state to allow the researcher to verify claim clusters, approve inferences, or guide synthesis."
+      },
+      {
+        step: "06",
+        name: "Verified Synthesis",
+        desc: "Outputs structured literature synthesis with immutable page/chunk provenance to prevent hallucinated citations."
+      }
     ],
-    techStack: ["Python", "LangGraph", "Google Gemini API", "Sentence-Transformers", "MiniLM", "RAG"],
-    accentColor: "lavender",
-    visualType: "langgraph-agent-workflow",
-    workflowSteps: [
-      { step: "01", name: "Query Decomposer", role: "Plans literature search paths & sub-topics", agent: "Planner Agent" },
-      { step: "02", name: "Paper Ingestion", role: "Parses PDFs, extracts chunks & metadata", agent: "Chunker Agent" },
-      { step: "03", name: "Claim Clustering", role: "Local MiniLM zero-cost embeddings", agent: "Embedding Cluster" },
-      { step: "04", name: "Conflict Detection", role: "Gemini analyzes contradictions in claims", agent: "Conflict Agent" },
-      { step: "05", name: "Human Review", role: "Interactive checkpoint to approve/refine", agent: "Human-in-the-Loop" },
-      { step: "06", name: "Provenance Synthesis", role: "Deterministic citations with chunk/page tags", agent: "Synthesizer" }
-    ]
+    techStack: ["Python", "LangGraph", "Google Gemini API", "Sentence-Transformers", "all-MiniLM-L6-v2"]
   },
-  {
-    id: "accident-detection-cnn",
-    title: "Accident Detection Using CNN",
-    tagline: "Computer Vision & Edge ML Pipeline",
-    isFlagship: false,
-    github: "https://github.com/prerna12github/accident-detection-using-cnn",
-    liveDemo: null,
-    status: "Completed Prototype",
-    description: "A real-time CCTV accident detection pipeline using a MobileNetV2 deep learning model optimized for edge hardware.",
-    keyFeatures: [
-      "Real-time accident detection pipeline.",
-      "MobileNetV2 model.",
-      "Post-training quantization.",
-      "OpenCV-based frame preprocessing.",
-      "Optimized inference throughput and reduced latency."
-    ],
-    techStack: ["Python", "TensorFlow", "MobileNetV2", "OpenCV", "Quantization"],
-    accentColor: "sage",
-    visualType: "cctv-edge-cv"
-  },
-  {
-    id: "u-short",
-    title: "U-Short — URL Shortener",
-    tagline: "High-Performance Backend Service",
-    isFlagship: false,
-    github: "https://github.com/prerna12github/u-short",
-    liveDemo: null,
-    status: "Completed Service",
-    description: "A low-latency URL shortening service featuring custom aliases, automated link expiry, and caching for faster redirections.",
-    keyFeatures: [
-      "Custom URL aliases.",
-      "Automated 30-day link expiry using pg_cron.",
-      "PostgreSQL persistence.",
-      "Valkey/Redis caching.",
-      "Optimized URL redirection."
-    ],
-    techStack: ["Python", "FastAPI", "PostgreSQL", "Valkey / Redis", "pg_cron"],
-    accentColor: "sky",
-    visualType: "url-shortener-backend"
-  }
-];
-
-export const exploringAreas = [
-  {
-    number: "01",
-    title: "Agentic AI",
-    subtitle: "Multi-agent systems, tool calling, workflows & orchestration",
-    detail: "Diving deep into stateful multi-agent architectures where specialized agents collaborate, execute tools, reflect on mistakes, and respect human checkpoints using LangGraph.",
-    tags: ["LangGraph", "Tool Use", "Multi-Agent Workflows", "Human-in-the-Loop"],
-    color: "pink",
-    icon: "Bot"
-  },
-  {
-    number: "02",
-    title: "RAG (Retrieval-Augmented Generation)",
-    subtitle: "Document retrieval, embeddings & vector search",
-    detail: "Building robust context-aware systems with intelligent chunking, cross-encoder re-ranking, provenance tracking, and zero-hallucination citations.",
-    tags: ["Sentence-Transformers", "Vector Search", "Chunking", "Semantic Search"],
-    color: "blue",
-    icon: "Database"
-  },
-  {
-    number: "03",
-    title: "LLMs (Large Language Models)",
-    subtitle: "Understanding models, embeddings, inference & optimization",
-    detail: "Exploring foundation model capabilities, structured JSON outputs, prompt evaluation, context window optimization, and prompt caching with Gemini & open weights.",
-    tags: ["Gemini API", "Prompt Engineering", "Structured Output", "Model Inference"],
-    color: "yellow",
-    icon: "Sparkles"
-  },
-  {
-    number: "04",
-    title: "AI Engineering",
-    subtitle: "Building practical AI apps & real-world integrations",
-    detail: "Bridging the gap between AI prototypes and production-grade applications with robust backend services, graceful fallbacks, and real user utility.",
-    tags: ["FastAPI", "Full-Stack AI", "API Design", "System Architecture"],
-    color: "peach",
-    icon: "Wrench"
-  },
-  {
-    number: "05",
-    title: "Machine Learning",
-    subtitle: "Deep learning, computer vision & model optimization",
-    detail: "Experimenting with convolutional neural networks, transfer learning with MobileNetV2, and post-training quantization (INT8) for fast edge deployment.",
-    tags: ["TensorFlow", "MobileNetV2", "OpenCV", "Edge Quantization"],
-    color: "green",
-    icon: "Cpu"
-  }
-];
+  secondary: [
+    {
+      id: "accident-detection-cnn",
+      title: "Accident Detection Using CNN",
+      category: "Computer Vision & Edge Optimization",
+      github: "https://github.com/prerna12github/accident-detection-using-cnn",
+      description: "A real-time CCTV accident detection pipeline using a MobileNetV2 deep learning model optimized for edge hardware.",
+      technicalDetails: [
+        "Lightweight MobileNetV2 architecture chosen for low parameter count and high edge suitability.",
+        "Post-training quantization (INT8) applied to maximize inference throughput and decrease latency on constrained hardware.",
+        "OpenCV-based frame difference buffering and preprocessing to filter static frames before inference."
+      ],
+      techStack: ["Python", "TensorFlow", "MobileNetV2", "OpenCV", "Quantization"]
+    },
+    {
+      id: "u-short",
+      title: "U-Short — URL Shortener",
+      category: "Backend Systems & Caching",
+      github: "https://github.com/prerna12github/u-short",
+      description: "A low-latency URL shortening service featuring custom aliases, automated link expiry, and caching for faster redirections.",
+      technicalDetails: [
+        "Valkey/Redis in-memory caching integrated alongside PostgreSQL to achieve sub-millisecond redirect lookups.",
+        "Automated 30-day link lifecycle management and background database purging implemented with pg_cron.",
+        "Clean RESTful API built on FastAPI with validation for custom collision-free aliases."
+      ],
+      techStack: ["Python", "FastAPI", "PostgreSQL", "Valkey / Redis", "pg_cron"]
+    }
+  ]
+};
 
 export const skillsData = {
   resumeSkills: [
     {
-      category: "Programming Languages",
-      color: "yellow",
-      items: [
-        { name: "Python", level: "Core", icon: "SiPython" },
-        { name: "JavaScript", level: "Proficient", icon: "SiJavascript" },
-        { name: "TypeScript", level: "Proficient", icon: "SiTypescript" },
-        { name: "Java", level: "Foundational", icon: "SiOpenjdk" }
-      ]
+      category: "Languages",
+      skills: ["Python", "JavaScript", "TypeScript", "Java"]
     },
     {
       category: "Frontend",
-      color: "pink",
-      items: [
-        { name: "React", level: "Proficient", icon: "SiReact" },
-        { name: "Next.js", level: "Working Knowledge", icon: "SiNextdotjs" },
-        { name: "Tailwind CSS", level: "Proficient", icon: "SiTailwindcss" },
-        { name: "HTML5", level: "Core", icon: "SiHtml5" },
-        { name: "CSS3", level: "Core", icon: "SiCss3" }
-      ]
+      skills: ["React", "Next.js", "Tailwind CSS", "HTML5", "CSS3"]
     },
     {
-      category: "Backend",
-      color: "blue",
-      items: [
-        { name: "FastAPI", level: "Proficient", icon: "SiFastapi" },
-        { name: "Node.js", level: "Proficient", icon: "SiNodedotjs" },
-        { name: "REST APIs", level: "Core", icon: "Globe" }
-      ]
+      category: "Backend & Systems",
+      skills: ["FastAPI", "Node.js", "REST APIs"]
     },
     {
-      category: "Databases",
-      color: "peach",
-      items: [
-        { name: "PostgreSQL", level: "Proficient", icon: "SiPostgresql" },
-        { name: "Redis / Valkey", level: "Working Knowledge", icon: "SiRedis" },
-        { name: "MySQL", level: "Proficient", icon: "SiMysql" },
-        { name: "SQLite", level: "Proficient", icon: "SiSqlite" },
-        { name: "Supabase", level: "Working Knowledge", icon: "SiSupabase" }
-      ]
+      category: "Databases & Storage",
+      skills: ["PostgreSQL", "Redis / Valkey", "MySQL", "SQLite", "Supabase"]
     },
     {
-      category: "Tools & Machine Learning",
-      color: "green",
-      items: [
-        { name: "Git", level: "Core", icon: "SiGit" },
-        { name: "GitHub", level: "Core", icon: "SiGithub" },
-        { name: "TensorFlow", level: "Working Knowledge", icon: "SiTensorflow" },
-        { name: "OpenCV", level: "Working Knowledge", icon: "SiOpencv" },
-        { name: "Postman", level: "Proficient", icon: "SiPostman" }
-      ]
+      category: "Tools & ML Frameworks",
+      skills: ["Git", "GitHub", "TensorFlow", "OpenCV", "Postman"]
     }
   ],
-  activelyExploring: [
-    { name: "LangGraph", focus: "Multi-Agent Workflows & Graph State", badge: "Agentic AI", color: "pink" },
-    { name: "LLMs", focus: "Prompting, Structured Outputs & Inference", badge: "Language Models", color: "yellow" },
-    { name: "RAG", focus: "Chunking, Vector Embeddings & Provenance", badge: "Retrieval", color: "blue" },
-    { name: "Sentence Transformers", focus: "Local MiniLM Vector Representations", badge: "Embeddings", color: "green" },
-    { name: "Agentic AI", focus: "Human-in-the-Loop & Autonomous Checkpoints", badge: "Systems", color: "peach" }
+  currentlyExploring: [
+    {
+      topic: "Agentic AI",
+      detail: "Multi-agent workflows, state graphs, tool invocation, and human-in-the-loop review loops using LangGraph."
+    },
+    {
+      topic: "RAG & Semantic Retrieval",
+      detail: "Chunking strategies, local sentence embeddings, vector indexing, and citation provenance verification."
+    },
+    {
+      topic: "Large Language Models (LLMs)",
+      detail: "Prompt engineering, structured JSON outputs, context window management, and foundation model APIs."
+    },
+    {
+      topic: "AI Engineering & Practical ML",
+      detail: "Integrating deep learning models into robust backend services, edge model quantization, and production APIs."
+    }
   ]
 };
 
-export const educationTimeline = [
+export const educationData = [
   {
     degree: "Master of Computer Applications (MCA)",
     institution: "Kalyani Government Engineering College",
-    affiliation: "MAKAUT, West Bengal",
     period: "2025 – Present",
-    status: "Currently Pursuing",
-    location: "Kalyani, Nadia, West Bengal",
-    image: "/kgec.jpg",
-    details: "Focusing on advanced computing, intelligent systems, software architecture, and distributed systems. Actively building projects in Agentic AI and deep learning.",
-    badge: "Current Degree 🎓",
-    badgeColor: "pink"
+    location: "Kalyani, West Bengal",
+    notes: "Focusing on advanced computing systems, AI engineering, and scalable software architectures."
   },
   {
     degree: "B.Sc. (Honours) in Computer Science",
-    institution: "Kalyani Mahavidyalaya",
-    affiliation: "University of Kalyani",
+    institution: "Kalyani Mahavidyalaya, University of Kalyani",
     period: "2022 – 2025",
-    status: "Graduated",
-    score: "CGPA: 7.96",
-    location: "Kalyani, Nadia, West Bengal",
-    image: "/clg.jpg",
-    details: "Built solid fundamentals in Data Structures & Algorithms, Object-Oriented Programming, Database Management Systems, Operating Systems, and Computer Networks.",
-    badge: "CGPA 7.96 ⭐",
-    badgeColor: "blue"
+    location: "Kalyani, West Bengal",
+    notes: "Graduated with CGPA 7.96. Strong foundations in Data Structures, Algorithms, DBMS, and Operating Systems."
   }
 ];
 
-export const achievements = [
-  {
-    title: "WBJECA 2025 — All-Bengal Merit Rank 62",
-    category: "State-Level Competitive Rank",
-    organization: "West Bengal Joint Entrance Examinations Board",
-    year: "2025",
-    description: "Secured All-Bengal General Merit Rank 62 in WBJECA 2025, qualifying for MCA admission into prestigious Kalyani Government Engineering College.",
-    highlightBadge: "Rank 62 statewide 🏆",
-    color: "yellow"
-  }
-];
-
-export const socialLinks = [
-  {
-    name: "GitHub",
-    handle: "@prerna12github",
-    url: "https://github.com/prerna12github",
-    desc: "Code repositories, experiments & agentic workflows",
-    type: "github"
-  },
-  {
-    name: "LinkedIn",
-    handle: "prerna-kumari-sharma",
-    url: "https://linkedin.com/in/prerna-kumari-sharma",
-    desc: "Professional updates, connections & learning milestones",
-    type: "linkedin"
-  },
-  {
-    name: "Email",
-    handle: "prernakumarisharma2003@gmail.com",
-    url: "mailto:prernakumarisharma2003@gmail.com",
-    desc: "Direct inquiries, collaboration & project chats",
-    type: "email"
-  }
-];
+export const achievementData = {
+  title: "WBJECA 2025 — All-Bengal Merit Rank 62",
+  organization: "West Bengal Joint Entrance Examinations Board",
+  description: "Secured statewide General Merit Rank 62 in the WBJECA entrance examination for MCA admission."
+};

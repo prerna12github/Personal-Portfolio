@@ -1,4 +1,5 @@
 import React from "react";
+import CustomCursor from "./components/CustomCursor";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -12,34 +13,37 @@ import Footer from "./components/Footer";
 
 const App = () => {
   return (
-    <div className="min-h-screen text-[#2B2621] relative selection:bg-[#FDE047]/50 selection:text-[#1F2937]">
-      {/* Sticky / Floating Navigation */}
+    <div className="min-h-screen text-[#242424] relative selection:bg-[#b11f4b]/12 selection:text-[#242424]">
+      {/* Tanuja's Custom Flower Cursor (Desktop only, physics tilt, scale on hover, click burst) */}
+      <CustomCursor />
+
+      {/* Sticky Navigation Header */}
       <Navbar />
 
-      {/* Main Content Sections */}
-      <main>
-        {/* 1. Hero Section */}
+      {/* Main Flow */}
+      <main id="main">
+        {/* 1. Hero & Discipline Strip */}
         <Hero />
 
-        {/* 2. About Me Section */}
+        {/* 2. About Me */}
         <About />
 
-        {/* 3. Featured Projects Section */}
+        {/* 3. Featured Projects */}
         <Projects />
 
-        {/* 4. What I'm Exploring Right Now Section */}
+        {/* 4. What I'm Exploring Right Now */}
         <Exploring />
 
-        {/* 5. Skills & Technologies Section */}
+        {/* 5. Skills & Technologies */}
         <Skills />
 
-        {/* 6. Education & Achievements Section */}
+        {/* 6. Education & Honors */}
         <Education />
 
-        {/* 7. Dedicated Resume Section */}
+        {/* 7. Official Resume */}
         <ResumeSection />
 
-        {/* 8. Contact & Social Section */}
+        {/* 8. Contact Section */}
         <Contact />
       </main>
 
