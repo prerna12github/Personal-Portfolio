@@ -16,7 +16,7 @@ const App = () => {
       {/* Sticky / Floating Navigation */}
       <Navbar />
 
-      {/* Main Content Sectionsgit /}
+      {/* Main Content Sections */}
       <main>
         {/* 1. Hero Section */}
         <Hero />
