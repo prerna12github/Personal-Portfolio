@@ -9,8 +9,8 @@ export const personalInfo = {
   github: "https://github.com/prerna12github",
   linkedin: "https://linkedin.com/in/prerna-kumari-sharma",
   resumePath: "/Prerna_Kumari_Sharma_Resume.pdf",
-  profileImage: "/prerna.jpg",
-  avatarImage: "/prernapic.png",
+  profileImage: "/prerna_new_pic.jpeg",
+  avatarImage: "/prerna_new_pic.jpeg",
   collegeImage: "/kgec.jpg",
   bscCollegeImage: "/clg.jpg",
 

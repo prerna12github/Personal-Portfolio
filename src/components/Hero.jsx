@@ -1,5 +1,6 @@
 import React from "react";
 import { personalInfo } from "../data/portfolioData";
+import AnimatedDoodle from "./AnimatedDoodle";
 
 export const Hero = () => {
   const scrollToProjects = (e) => {
@@ -99,24 +100,9 @@ export const Hero = () => {
 
           </div>
 
-          {/* Right Column: Framed Portrait */}
+          {/* Right Column: Tanuja Animated Doodle (Thought Cloud / Code Flower) */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-[360px] rounded-[20px] overflow-hidden border border-[#dedede] bg-white shadow-soft p-3">
-              <div className="w-full aspect-[4/5] rounded-[14px] overflow-hidden bg-[#f5f2ed] relative">
-                <img
-                  src={personalInfo.profileImage}
-                  alt={personalInfo.name}
-                  className="w-full h-full object-cover object-top filter contrast-[1.03]"
-                  onError={(e) => {
-                    e.currentTarget.src = personalInfo.avatarImage;
-                  }}
-                />
-              </div>
-              <div className="pt-3 pb-1 px-1 flex items-center justify-between text-[10px] font-mono uppercase tracking-wider text-[#78716C]">
-                <span>Prerna Kumari Sharma</span>
-                <span className="text-[#b11f4b] font-semibold">MCA @ KGEC</span>
-              </div>
-            </div>
+            <AnimatedDoodle />
           </div>
 
         </div>
