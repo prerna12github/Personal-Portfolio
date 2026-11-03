@@ -78,7 +78,7 @@ export const About = () => {
         
         {/* Left Column: Tanuja Profile & Framed Portrait with Wobble */}
         <div className="lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left">
-          <p className="eyebrow self-start mb-4">ABOUT PRERNA</p>
+          {/* <p className="eyebrow self-start mb-4">ABOUT PRERNA</p>*/}
 
           {/* Framed Portrait with Spring Wobble */}
           <div className="w-full flex justify-center lg:justify-start mb-6">
@@ -117,26 +117,13 @@ export const About = () => {
           </div>
         </div>
 
-        {/* Right Column: Narrative paragraphs & Academic Milestones */}
+        {/* Right Column: Heading "A Little About me" & narrative bio paragraphs */}
         <div className="lg:col-span-7 space-y-6 text-[#5c5c5c] leading-[1.8] text-base pt-2">
-          <div className="space-y-4 text-sm font-mono text-[#5c5c5c] border-l-2 border-[#b11f4b] pl-4 py-1 mb-8 bg-white/40 rounded-r-lg p-3 border-y border-r border-[#dedede]/60">
-            <div>
-              <span className="text-[#242424] font-bold block text-[13px]">Current Degree:</span>
-              <span className="text-[#242424]">Master of Computer Applications (MCA)</span>
-              <span className="block text-xs text-[#78716C]">Kalyani Government Engineering College · 2025 – Present</span>
-            </div>
-
-            <div>
-              <span className="text-[#242424] font-bold block text-[13px]">Previous Degree:</span>
-              <span className="text-[#242424]">B.Sc. (Honours) Computer Science · CGPA 7.96</span>
-              <span className="block text-xs text-[#78716C]">Kalyani Mahavidyalaya, University of Kalyani · 2022 – 2025</span>
-            </div>
-
-            <div>
-              <span className="text-[#242424] font-bold block text-[13px]">Statewide Competitive Honor:</span>
-              <span className="text-[#b11f4b] font-semibold">WBJECA 2025 All-Bengal General Merit Rank 62</span>
-              <span className="block text-xs text-[#78716C]">West Bengal Joint Entrance Examinations Board</span>
-            </div>
+          <div>
+            <p className="eyebrow mb-2">ABOUT</p>
+            <h2 className="mb-6 leading-[1.15] text-[#242424]">
+              A Little <em>About Me.</em>
+            </h2>
           </div>
 
           <p>

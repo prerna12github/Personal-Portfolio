@@ -58,7 +58,7 @@ export const Navbar = () => {
           className="flex items-center gap-3 text-left group no-underline"
         >
           <img
-            src={personalInfo.avatarImage}
+            src="/prernapic.png"
             alt={personalInfo.name}
             className="w-12 h-12 rounded-[10px] object-cover border border-[#dedede] flex-shrink-0"
             onError={(e) => {
@@ -99,15 +99,15 @@ export const Navbar = () => {
           })}
         </nav>
 
-        {/* Contact Nav Action */}
+        {/* Contact Nav Action (Pill Shape matching Explore My Projects) */}
         <div className="flex items-center gap-3">
           <a
             href="#contact"
             onClick={(e) => handleNavClick(e, "#contact")}
-            className="contact-nav hidden sm:inline-flex items-center justify-between gap-4 py-2.5 px-4 rounded-[10px] border border-[#919191] text-[13px] text-[#242424] font-normal hover:bg-[#b11f4b] hover:border-[#b11f4b] hover:text-white transition-all group no-underline"
+            className="contact-nav hidden sm:inline-flex items-center justify-between gap-2.5 min-h-[44px] py-2.5 px-5 rounded-full bg-[#b11f4b] border border-[#b11f4b] text-[13px] text-white font-medium hover:bg-[#9a1a41] hover:border-[#9a1a41] transition-all group no-underline shadow-xs"
           >
             <span>Let's talk</span>
-            <span className="text-[#b11f4b] group-hover:text-white transition-colors">↗</span>
+            <span className="text-white group-hover:translate-x-0.5 transition-transform" aria-hidden="true">↗</span>
           </a>
 
           {/* Mobile menu trigger */}
@@ -119,7 +119,6 @@ export const Navbar = () => {
             {mobileMenuOpen ? <FiX className="w-5 h-5" /> : <FiMenu className="w-5 h-5" />}
           </button>
         </div>
-
       </div>
 
       {/* Mobile Menu Dropdown */}
@@ -138,9 +137,10 @@ export const Navbar = () => {
           <a
             href="#contact"
             onClick={(e) => handleNavClick(e, "#contact")}
-            className="text-sm font-medium text-[#b11f4b] pt-1"
+            className="inline-flex items-center justify-center gap-2 py-2.5 px-6 rounded-full bg-[#b11f4b] text-white text-sm font-medium hover:bg-[#9a1a41] transition-colors mt-2"
           >
-            Let's talk ↗
+            <span>Let's talk</span>
+            <span aria-hidden="true">↗</span>
           </a>
         </div>
       )}

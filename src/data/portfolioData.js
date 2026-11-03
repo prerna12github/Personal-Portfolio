@@ -10,7 +10,7 @@ export const personalInfo = {
   linkedin: "https://linkedin.com/in/prerna-kumari-sharma",
   resumePath: "/Prerna_Kumari_Sharma_Resume.pdf",
   profileImage: "/prerna_new_pic.jpeg",
-  avatarImage: "/prerna_new_pic.jpeg",
+  avatarImage: "/prernapic.png",
   collegeImage: "/kgec.jpg",
   bscCollegeImage: "/clg.jpg",
 
