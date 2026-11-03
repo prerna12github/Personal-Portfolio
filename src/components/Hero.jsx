@@ -38,9 +38,9 @@ export const Hero = () => {
               AI &amp; Full-Stack Developer
             </p>
 
-            <p className="eyebrow text-[#b11f4b] font-medium tracking-wider mb-6">
+            {/* <p className="eyebrow text-[#b11f4b] font-medium tracking-wider mb-6">
               Exploring Agentic AI, LLMs, RAG &amp; Machine Learning.
-            </p>
+            </p>*/}
 
             <p className="text-base sm:text-[17px] text-[#5c5c5c] leading-[1.75] mb-8 max-w-xl">
               "I'm an MCA student passionate about building practical software and exploring intelligent systems. Currently, I'm learning and experimenting with AI Agents, Agentic Workflows, RAG, Large Language Models, Machine Learning, and full-stack development."
