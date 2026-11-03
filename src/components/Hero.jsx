@@ -30,8 +30,12 @@ export const Hero = () => {
           
           {/* Left Column: Heading, Subheading, Summary, Actions */}
           <div className="lg:col-span-7 flex flex-col items-start">
-            <h1 className="text-[#242424] tracking-[-3px] font-[450] leading-[1.08] mb-4">
-              Hey, I'm <em>Prerna!</em>
+            <h1 className="hero-heading">
+              Hi, I’m{" "}
+              <span className="hero-highlight-wrap">
+                <span className="hero-highlight-bg" aria-hidden="true" />
+                <span className="relative z-10">Prerna</span>
+              </span>
             </h1>
 
             <p className="text-lg sm:text-xl font-medium text-[#242424] mb-3 leading-snug">
