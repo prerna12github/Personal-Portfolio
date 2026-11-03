@@ -27,7 +27,7 @@ export const personalInfo = {
 export const featuredProjects = {
   flagship: {
     id: "agentic-literature-review",
-    title: "LitReviwe --- Agentic Literature Review Assistant",
+    title: "LitReview — Agentic Literature Review Assistant",
     category: "Featured Engineering Project · Agentic AI",
     github: "https://github.com/prerna12github/agentic-literature-review",
     problem: "Academic literature reviews require researchers to synthesize dozens of complex research papers, identify hidden contradictions, and maintain meticulous citation accuracy—a labor-intensive process vulnerable to oversight and hallucination.",
