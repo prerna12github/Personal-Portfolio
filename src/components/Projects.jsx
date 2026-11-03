@@ -10,14 +10,14 @@ export const Projects = () => {
       {/* Section Heading */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14">
         <div>
-          <p className="eyebrow mb-2">SELECTED ENGINEERING WORK</p>
+          {/* <p className="eyebrow mb-2">SELECTED ENGINEERING WORK</p>*/}
           <h2>
             Featured <em>Projects.</em>
           </h2>
         </div>
-        <p className="text-xs font-mono text-[#5c5c5c] tracking-widest uppercase">
+        {/* <p className="text-xs font-mono text-[#5c5c5c] tracking-widest uppercase">
           03 CASE REPOSITORIES
-        </p>
+        </p>*/}
       </div>
 
       {/* ========================================================================= */}

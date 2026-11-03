@@ -17,14 +17,14 @@ export const Skills = () => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
         <div>
-          <p className="eyebrow mb-2">TECHNICAL TOOLKIT</p>
+          {/* <p className="eyebrow mb-2">TECHNICAL TOOLKIT</p>*/}
           <h2>
             Skills &amp; <em>Technologies.</em>
           </h2>
         </div>
-        <p className="text-xs font-mono text-[#5c5c5c] tracking-widest uppercase">
+        {/* <p className="text-xs font-mono text-[#5c5c5c] tracking-widest uppercase">
           CORE CAPABILITIES
-        </p>
+        </p>*/}
       </div>
 
       {/* Tanuja's Filter Buttons */}

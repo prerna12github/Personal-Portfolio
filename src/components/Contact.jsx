@@ -36,7 +36,7 @@ export const Contact = () => {
         
         {/* Left: Tanuja's Iconic Large Heading & Socials */}
         <div className="lg:col-span-6 space-y-6">
-          <p className="eyebrow mb-2">LET'S CONNECT</p>
+          {/* <p className="eyebrow mb-2">LET'S CONNECT</p>*/}
           <h2 className="leading-[1.1] tracking-[-2px] text-[#242424]">
             Let's make<br />something <em>matter.</em>
           </h2>

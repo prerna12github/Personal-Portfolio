@@ -39,7 +39,7 @@ export const Exploring = () => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14">
         <div>
-          <p className="eyebrow mb-2">CURRENT LEARNING PLAYGROUND</p>
+          {/* <p className="eyebrow mb-2">CURRENT LEARNING PLAYGROUND</p>*/}
           <h2>
             Active <em>Exploration.</em>
           </h2>

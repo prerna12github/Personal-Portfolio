@@ -120,7 +120,7 @@ export const About = () => {
         {/* Right Column: Heading "A Little About me" & narrative bio paragraphs */}
         <div className="lg:col-span-7 space-y-6 text-[#5c5c5c] leading-[1.8] text-base pt-2">
           <div>
-            <p className="eyebrow mb-2">ABOUT</p>
+            {/* <p className="eyebrow mb-2">ABOUT</p>*/}
             <h2 className="mb-6 leading-[1.15] text-[#242424]">
               A Little <em>About Me.</em>
             </h2>

@@ -8,14 +8,14 @@ export const Education = () => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14">
         <div>
-          <p className="eyebrow mb-2">ACADEMIC BACKGROUND</p>
+          {/* <p className="eyebrow mb-2">ACADEMIC BACKGROUND</p>*/}
           <h2>
             Education &amp; <em>Honors.</em>
           </h2>
         </div>
-        <p className="text-xs font-mono text-[#5c5c5c] tracking-widest uppercase">
+        {/* <p className="text-xs font-mono text-[#5c5c5c] tracking-widest uppercase">
           CREDENTIALS
-        </p>
+        </p>*/}
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
