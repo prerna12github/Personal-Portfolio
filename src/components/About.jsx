@@ -91,7 +91,7 @@ export const About = () => {
                   src="/prerna_new_pic.jpeg"
                   alt="Prerna Kumari Sharma - Portrait"
                   className="w-full h-full object-cover object-top filter contrast-[1.02]"
-                  loading="lazy"
+                  loading="eager"
                 />
               </div>
               <div className="pt-3 pb-1 px-1 flex items-center justify-between text-[11px] font-mono uppercase tracking-wider text-[#78716C]">
