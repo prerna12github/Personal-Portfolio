@@ -279,34 +279,6 @@ export const MailboxVisual = ({ status, slotRef }) => {
           <path d="M220,99 L220,113" stroke="#f7b4c6" strokeWidth="1" strokeLinecap="round" opacity="0.6" />
         </motion.g>
       </svg>
-
-      {/* Monospace Status Indicator beneath mailbox */}
-      <div className="mt-2 text-center">
-        <span
-          className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-mono tracking-wider transition-colors duration-200 ${
-            isDelivered
-              ? "bg-[#fff8f1] text-[#242424] border border-[#dedede]"
-              : isIncoming
-              ? "bg-[#fff8f1] text-[#b11f4b] border border-[#f7b4c6]"
-              : "bg-[#f5f2ed] text-[#5c5c5c] border border-[#dedede]"
-          }`}
-        >
-          <span
-            className={`w-1.5 h-1.5 rounded-full ${
-              isDelivered
-                ? "bg-[#b11f4b]"
-                : isIncoming
-                ? "bg-[#f59e0b]"
-                : "bg-[#b11f4b]"
-            }`}
-          />
-          {isDelivered
-            ? "NOTE DELIVERED · FLAG RAISED"
-            : isIncoming
-            ? "INCOMING PLANE..."
-            : "PRERNA'S MAILBOX · READY"}
-        </span>
-      </div>
     </div>
   );
 };

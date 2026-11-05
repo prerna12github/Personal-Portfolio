@@ -1,16 +1,13 @@
-import React, { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useState, useRef } from "react";
+import { motion } from "framer-motion";
 import PaperPlaneVisual from "./PaperPlaneVisual";
 
 export const SlingshotLauncher = ({
-  status,
+  stage,
   onLaunch,
-  isFormValid,
-  onInvalidAttempt,
-  flightTarget,
+  dockRef,
   disabled = false,
 }) => {
-  // Dragging state
   const [isDragging, setIsDragging] = useState(false);
   const [pull, setPull] = useState({ x: 0, y: 0 });
   const startPos = useRef({ x: 0, y: 0 });
@@ -21,9 +18,8 @@ export const SlingshotLauncher = ({
   const MAX_PULL_Y = 40;   // vertical wiggle
 
   // Calculate pull tension (0 to 1)
-  const pullDistance = Math.sqrt(pull.x * pull.x + pull.y * pull.y);
   const tension = Math.min(1, Math.abs(pull.x) / Math.abs(MAX_PULL_X));
-  const isReadyToLaunch = Math.abs(pull.x) >= 40;
+  const isReadyToLaunch = Math.abs(pull.x) >= 35;
 
   // Slingshot anchor pegs coordinates (relative to dock)
   const PEG_LEFT = { x: 38, y: 32 };
@@ -38,13 +34,7 @@ export const SlingshotLauncher = ({
 
   // Pointer down (mouse or touch)
   const handlePointerDown = (e) => {
-    if (disabled || status !== "idle") return;
-
-    // Check if form is valid before letting user pull
-    if (!isFormValid()) {
-      onInvalidAttempt();
-      return;
-    }
+    if (disabled || stage !== "launch") return;
 
     e.preventDefault();
     e.currentTarget.setPointerCapture(e.pointerId);
@@ -78,10 +68,10 @@ export const SlingshotLauncher = ({
     } catch (_) {}
 
     // Check if pulled past launch threshold
-    if (Math.abs(pull.x) >= 40) {
-      // Trigger launch!
+    if (Math.abs(pull.x) >= 35) {
+      const releasePull = { pullX: pull.x, pullY: pull.y };
       setPull({ x: 0, y: 0 });
-      onLaunch();
+      onLaunch(releasePull);
     } else {
       // Snap back to resting position
       setPull({ x: 0, y: 0 });
@@ -120,7 +110,7 @@ export const SlingshotLauncher = ({
           <span className="text-[10px] font-mono text-[#5c5c5c]">
             {isDragging
               ? isReadyToLaunch
-                ? "RELEASE TO LAUNCH! 🚀"
+                ? "RELEASE TO LAUNCH!"
                 : "PULL FARTHER BACK..."
               : "MOUSE OR TOUCH"}
           </span>
@@ -155,26 +145,30 @@ export const SlingshotLauncher = ({
             />
 
             {/* Elastic Cord 1: Top Peg -> Plane Tail */}
-            <path
-              d={`M ${PEG_LEFT.x} ${PEG_LEFT.y} Q ${(PEG_LEFT.x + planePos.x) / 2} ${
-                (PEG_LEFT.y + planePos.y - 4) / 2
-              } ${planePos.x + 8} ${planePos.y - 4}`}
-              stroke={cordColor}
-              strokeWidth={cordWidth}
-              strokeLinecap="round"
-              className="transition-colors duration-150"
-            />
+            {stage === "launch" && (
+              <path
+                d={`M ${PEG_LEFT.x} ${PEG_LEFT.y} Q ${(PEG_LEFT.x + planePos.x) / 2} ${
+                  (PEG_LEFT.y + planePos.y - 4) / 2
+                } ${planePos.x + 8} ${planePos.y - 4}`}
+                stroke={cordColor}
+                strokeWidth={cordWidth}
+                strokeLinecap="round"
+                className="transition-colors duration-150"
+              />
+            )}
 
             {/* Elastic Cord 2: Bottom Peg -> Plane Tail */}
-            <path
-              d={`M ${PEG_RIGHT.x} ${PEG_RIGHT.y} Q ${(PEG_RIGHT.x + planePos.x) / 2} ${
-                (PEG_RIGHT.y + planePos.y + 4) / 2
-              } ${planePos.x + 8} ${planePos.y + 4}`}
-              stroke={cordColor}
-              strokeWidth={cordWidth}
-              strokeLinecap="round"
-              className="transition-colors duration-150"
-            />
+            {stage === "launch" && (
+              <path
+                d={`M ${PEG_RIGHT.x} ${PEG_RIGHT.y} Q ${(PEG_RIGHT.x + planePos.x) / 2} ${
+                  (PEG_RIGHT.y + planePos.y + 4) / 2
+                } ${planePos.x + 8} ${planePos.y + 4}`}
+                stroke={cordColor}
+                strokeWidth={cordWidth}
+                strokeLinecap="round"
+                className="transition-colors duration-150"
+              />
+            )}
 
             {/* Top Wooden / Brass Peg */}
             <g transform={`translate(${PEG_LEFT.x}, ${PEG_LEFT.y})`}>
@@ -189,8 +183,14 @@ export const SlingshotLauncher = ({
             </g>
           </svg>
 
-          {/* THE DRAGGABLE PAPER PLANE */}
-          {status === "idle" && (
+          {/* THE DOCK ANCHOR REF (Center of Plane Resting Spot) */}
+          <div
+            ref={dockRef}
+            className="absolute left-[42px] top-[32px] w-16 h-16 sm:w-20 sm:h-20 pointer-events-none"
+          />
+
+          {/* THE DRAGGABLE PAPER PLANE (Visible when in launch stage) */}
+          {stage === "launch" && (
             <motion.div
               style={{
                 x: pull.x,
@@ -217,14 +217,13 @@ export const SlingshotLauncher = ({
                 isDragging ? "cursor-grabbing" : ""
               }`}
             >
-              {/* Pulsing ring indicator around plane when ready */}
               <div className="relative">
                 <PaperPlaneVisual className="w-16 h-16 sm:w-20 sm:h-20" />
 
                 {/* Hand-drawn Pull Badge */}
                 {!isDragging && (
                   <div className="absolute -top-6 -left-3 pointer-events-none whitespace-nowrap bg-white/95 border border-[#dedede] px-2 py-0.5 rounded-full text-[10px] font-['Caveat'] text-[#b11f4b] shadow-xs flex items-center gap-1">
-                    <span>← Pull back to send</span>
+                    <span>← Pull back to launch</span>
                   </div>
                 )}
 
@@ -237,7 +236,7 @@ export const SlingshotLauncher = ({
                         : "bg-[#fff8f1] text-[#b11f4b] border border-[#f7b4c6]"
                     }`}
                   >
-                    {isReadyToLaunch ? "READY! RELEASE 🚀" : `${Math.round(tension * 100)}% TENSION`}
+                    {isReadyToLaunch ? "READY! RELEASE" : `${Math.round(tension * 100)}% TENSION`}
                   </div>
                 )}
               </div>
@@ -245,36 +244,32 @@ export const SlingshotLauncher = ({
           )}
 
           {/* Alternative Tap/Click Launch Button for Accessibility */}
-          <div className="ml-auto pl-4 z-10 flex flex-col items-end">
-            <button
-              type="button"
-              disabled={disabled || status !== "idle"}
-              onClick={() => {
-                if (!isFormValid()) {
-                  onInvalidAttempt();
-                  return;
-                }
-                onLaunch();
-              }}
-              className="button cursor-pointer text-xs sm:text-sm py-2 sm:py-2.5 px-4 sm:px-5 disabled:opacity-60"
-            >
-              <span>Release &amp; Send Plane</span>
-              <span aria-hidden="true">✈️</span>
-            </button>
-            <span className="text-[10px] font-mono text-[#5c5c5c] mt-1">
-              or pull the plane backwards
-            </span>
-          </div>
+          {stage === "launch" && (
+            <div className="ml-auto pl-4 z-10 flex flex-col items-end">
+              <button
+                type="button"
+                disabled={disabled}
+                onClick={() => onLaunch({ pullX: -60, pullY: 0 })}
+                className="button cursor-pointer text-xs sm:text-sm py-2 sm:py-2.5 px-4 sm:px-5 disabled:opacity-60"
+              >
+                <span>Release &amp; Send Plane</span>
+                <span aria-hidden="true">✈️</span>
+              </button>
+              <span className="text-[10px] font-mono text-[#5c5c5c] mt-1">
+                or pull the plane backwards
+              </span>
+            </div>
+          )}
 
         </div>
 
         {/* Helpful interaction guidance */}
         <div className="mt-2 pt-2 border-t border-[#dedede]/60 flex items-center justify-between text-[11px] font-mono text-[#5c5c5c]">
-          <span>1. Fill your note</span>
+          <span>1. Pull plane backwards</span>
           <span>→</span>
-          <span>2. Pull plane backwards</span>
+          <span>2. Release</span>
           <span>→</span>
-          <span>3. Release to fly!</span>
+          <span>3. Flies into mailbox!</span>
         </div>
 
       </div>
