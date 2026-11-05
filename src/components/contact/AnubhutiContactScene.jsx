@@ -257,7 +257,7 @@ export const AnubhutiContactScene = ({
         </ol>
 
         {/* Edit note back button */}
-        {/* {deliveryStatus === "launch" && (
+        {deliveryStatus === "launch" && (
           <button
             type="button"
             onClick={onResetToLetter}
@@ -266,7 +266,7 @@ export const AnubhutiContactScene = ({
             <span>✎</span>
             <span>Edit note</span>
           </button>
-        )}*/}
+        )}
       </div>
 
       {/* ========================================================================= */}
@@ -579,14 +579,78 @@ export const AnubhutiContactScene = ({
             )}
           </div>
 
-          {/* --- RIGHT: ANUBHUTI-INSPIRED MAILBOX WITH TARGET TAG & RING --- */}
+          {/* --- RIGHT: ANUBHUTI-INSPIRED MAILBOX WITH DREAMY CLOUD & TARGET RING --- */}
           <div className="lg:col-span-5 flex flex-col items-center justify-end w-full">
             <div ref={mailboxRef} className="relative flex flex-col items-center w-full max-w-[280px]">
               
+              {/* Dreamy Cloud Shape Boundary pointing toward the mailbox */}
+              <motion.div
+                animate={{ y: [0, -3.5, 0] }}
+                transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+                className="relative mb-1 flex items-center justify-center select-none"
+              >
+                <svg
+                  viewBox="0 0 196 78"
+                  className="w-[175px] sm:w-[190px] h-auto overflow-visible filter drop-shadow-[0_3px_7px_rgba(150,130,115,0.18)]"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <defs>
+                    <linearGradient id="dreamy-cloud-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stopColor="#ffffff" />
+                      <stop offset="60%" stopColor="#fffdfa" />
+                      <stop offset="100%" stopColor="#fff6ee" />
+                    </linearGradient>
+                  </defs>
+
+                  {/* Tiny dreamy sparkle on top-right */}
+                  <path
+                    d="M174,10 Q174,14 178,14 Q174,14 174,18 Q174,14 170,14 Q174,14 174,10 Z"
+                    fill="#f4c244"
+                  />
+                  {/* Tiny dreamy sparkle on top-left */}
+                  <path
+                    d="M18,16 Q18,19 21,19 Q18,19 18,22 Q18,19 15,19 Q18,19 18,16 Z"
+                    fill="#f7b4c6"
+                    opacity="0.8"
+                  />
+
+                  {/* Dreamy Fluffy Cloud Body with downward pointer tail */}
+                  <path
+                    d="M 45,56 C 32,56 16,50 14,38 C 12,28 22,20 32,20 C 34,12 45,6 58,8 C 66,2 80,1 96,1 C 112,1 126,3 134,9 C 146,5 160,12 161,22 C 172,25 180,33 178,43 C 176,52 162,56 148,56 C 136,56 122,55 114,56 C 108,61 102,69 98,73 C 95,68 91,60 84,56 C 70,56 56,56 45,56 Z"
+                    fill="url(#dreamy-cloud-grad)"
+                    stroke="#ded8cf"
+                    strokeWidth="1.6"
+                    strokeLinejoin="round"
+                  />
+
+                  {/* Dreamy Little Trailing Puff below pointer towards mailbox */}
+                  <circle
+                    cx="98"
+                    cy="76"
+                    r="2"
+                    fill="#ffffff"
+                    stroke="#ded8cf"
+                    strokeWidth="1"
+                  />
+
+                  {/* Soft Rosy Cheek Doodles on Cloud */}
+                  <ellipse cx="48" cy="38" rx="4.5" ry="2.2" fill="#f7b4c6" opacity="0.45" />
+                  <ellipse cx="148" cy="38" rx="4.5" ry="2.2" fill="#f7b4c6" opacity="0.45" />
+                </svg>
+
+                {/* Cute Handwritten "Prerna's Mailbox" inside Cloud */}
+                <div className="absolute inset-0 flex items-center justify-center pb-3">
+                  <span className="font-['Caveat'] text-xl sm:text-[22px] font-bold tracking-wide text-[#242424] drop-shadow-xs">
+                    Prerna's Mailbox
+                  </span>
+                </div>
+              </motion.div>
+
               {/* Anubhuti-inspired Target Ring (`gring`) over Mailbox Slot (Only when aiming/launching) */}
               {deliveryStatus !== "delivered" && (
                 <div
-                  className={`absolute top-[100px] w-20 h-20 rounded-full border-2 border-dashed pointer-events-none transition-all duration-300 z-30 ${
+                  className={`absolute top-[160px] sm:top-[165px] w-20 h-20 rounded-full border-2 border-dashed pointer-events-none transition-all duration-300 z-30 ${
                     isDragging
                       ? "border-[#b11f4b] scale-110 opacity-80"
                       : "border-[#b11f4b]/25 opacity-40 scale-100"
@@ -599,15 +663,13 @@ export const AnubhutiContactScene = ({
 
               {/* Mailbox caption instruction */}
               <p className="text-center text-xs text-[#5c5c5c] mt-3 font-mono leading-relaxed max-w-[220px]">
-                {/* {deliveryStatus === "launch" && "Pull back the slingshot and let go to land in the mailbox!"}*/}
                 {deliveryStatus === "flying" && "Soaring along the dotted path..."}
-                {/* {deliveryStatus === "delivered" && "Your note is safely inside."}*/}
                 {deliveryStatus === "error" && "Delivery interrupted. Retry throwing above."}
               </p>
 
               {/* Burst Confetti Particles on Arrival */}
               {confetti.length > 0 && deliveryStatus === "delivered" && (
-                <div className="absolute top-[110px] left-1/2 -translate-x-1/2 pointer-events-none z-30">
+                <div className="absolute top-[165px] left-1/2 -translate-x-1/2 pointer-events-none z-30">
                   {confetti.map((c) => (
                     <motion.div
                       key={c.id}
