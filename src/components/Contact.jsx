@@ -139,7 +139,7 @@ export const Contact = () => {
         name,
         email,
         message,
-        _subject: `New Paper Plane from ${name} via Portfolio`,
+        _subject: `New Message from Portfolio Website: ${name}`,
         _replyto: email,
       }),
     });

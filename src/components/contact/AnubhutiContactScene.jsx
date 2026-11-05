@@ -346,10 +346,10 @@ export const AnubhutiContactScene = ({
         {/* MAIN ARENA SCENE: SLINGSHOT (LEFT) + MAILBOX (RIGHT) */}
         {/* ======================================================================= */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-end relative z-10 w-full min-h-[380px]">
-          
+
           {/* --- LEFT: SLINGSHOT FORK & PLANE (OR CONFIRMATION WHEN DELIVERED) --- */}
           <div className="lg:col-span-7 flex flex-col justify-end w-full">
-            
+
             {/* A. SLINGSHOT LAUNCHER (Visible when ready or flying) */}
             {(deliveryStatus === "launch" || deliveryStatus === "flying") && (
               <div
@@ -570,7 +570,7 @@ export const AnubhutiContactScene = ({
           {/* --- RIGHT: ANUBHUTI-INSPIRED MAILBOX WITH DREAMY CLOUD & TARGET RING --- */}
           <div className="lg:col-span-5 flex flex-col items-center justify-end w-full">
             <div ref={mailboxRef} className="relative flex flex-col items-center w-full max-w-[280px]">
-              
+
               {/* Dreamy Cloud Shape Boundary pointing toward the mailbox */}
               <motion.div
                 animate={{ y: [0, -3.5, 0] }}
