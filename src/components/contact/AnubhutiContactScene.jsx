@@ -195,7 +195,7 @@ export const AnubhutiContactScene = ({
       {/* ========================================================================= */}
       {/* 1. ANUBHUTI-INSPIRED STEPS INDICATOR (TOP BAR) */}
       {/* ========================================================================= */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 mb-6 px-1">
+      <div className="flex items-center justify-center sm:justify-start gap-3 mb-6 px-1">
         <ol className="flex items-center gap-1.5 sm:gap-2 text-[11px] font-mono tracking-wider">
           {/* Step 1: Pull back */}
           <li
@@ -255,18 +255,6 @@ export const AnubhutiContactScene = ({
             <span>LET GO</span>
           </li>
         </ol>
-
-        {/* Edit note back button */}
-        {deliveryStatus === "launch" && (
-          <button
-            type="button"
-            onClick={onResetToLetter}
-            className="text-xs font-mono text-[#5c5c5c] hover:text-[#b11f4b] hover:underline flex items-center gap-1"
-          >
-            <span>✎</span>
-            <span>Edit note</span>
-          </button>
-        )}
       </div>
 
       {/* ========================================================================= */}
@@ -591,7 +579,7 @@ export const AnubhutiContactScene = ({
               >
                 <svg
                   viewBox="0 0 196 78"
-                  className="w-[175px] sm:w-[190px] h-auto overflow-visible filter drop-shadow-[0_3px_7px_rgba(150,130,115,0.18)]"
+                  className="w-[170px] sm:w-[185px] h-auto overflow-visible filter drop-shadow-[0_3px_7px_rgba(150,130,115,0.18)]"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -641,7 +629,7 @@ export const AnubhutiContactScene = ({
 
                 {/* Cute Handwritten "Prerna's Mailbox" inside Cloud */}
                 <div className="absolute inset-0 flex items-center justify-center pb-3">
-                  <span className="font-['Caveat'] text-xl sm:text-[22px] font-bold tracking-wide text-[#242424] drop-shadow-xs">
+                  <span className="font-['Caveat'] text-base sm:text-[17px] font-bold tracking-wide text-[#242424] drop-shadow-xs">
                     Prerna's Mailbox
                   </span>
                 </div>
